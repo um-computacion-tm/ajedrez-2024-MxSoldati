@@ -1,5 +1,5 @@
 ## ♟️ AJEDREZ ♟️  
-######Maximo Soldati Lopez
+###### Maximo Soldati Lopez
 ------------
 ### 📝 Descripción
 Este es un **juego de ajedrez** bien estructurado desarrollado en **Python** utilizando Programación Orientada a Objetos (POO). El proyecto tiene como objetivo crear un juego de ajedrez completamente funcional con **testeos** exhaustivas y monitoreos de la **calidad** del código. 
