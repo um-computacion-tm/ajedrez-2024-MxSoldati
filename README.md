@@ -3,7 +3,12 @@
 ------------
 ### 📝 Descripción
 Este es un **juego de ajedrez** bien estructurado desarrollado en **Python** utilizando Programación Orientada a Objetos (POO). El proyecto tiene como objetivo crear un juego de ajedrez completamente funcional con **testeos** exhaustivas y monitoreos de la **calidad** del código. 
-<br>
+
+### Maintenability
+[![Maintainability](https://api.codeclimate.com/v1/badges/af0883bce3bdd7b73f68/maintainability)](https://codeclimate.com/github/um-computacion-tm/ajedrez-2024-MxSoldati/maintainability)
+
+### Test Coverage
+[![Test Coverage](https://api.codeclimate.com/v1/badges/af0883bce3bdd7b73f68/test_coverage)](https://codeclimate.com/github/um-computacion-tm/ajedrez-2024-MxSoldati/test_coverage)
 <br>
 ### 🛠️ Primeros Pasos
 <br>
