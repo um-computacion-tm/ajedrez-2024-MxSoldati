@@ -1,10 +1,14 @@
 ## ♟️ AJEDREZ ♟️  
 ###### Maximo Soldati Lopez
 ------------
+### CircleCI
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/um-computacion-tm/ajedrez-2024-MxSoldati/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/um-computacion-tm/ajedrez-2024-MxSoldati/tree/main)
 ### 📝 Descripción
 Este es un **juego de ajedrez** bien estructurado desarrollado en **Python** utilizando Programación Orientada a Objetos (POO). El proyecto tiene como objetivo crear un juego de ajedrez completamente funcional con **testeos** exhaustivas y monitoreos de la **calidad** del código. 
 <br>
 <br>
+<br>
+
 ### 🛠️ Primeros Pasos
 <br>
 
