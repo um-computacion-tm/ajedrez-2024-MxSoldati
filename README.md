@@ -32,5 +32,3 @@ Este es un **juego de ajedrez** bien estructurado desarrollado en **Python** uti
 <p align="center">
   <img src="https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/pdrpnht/phpEH1kWv.png" alt="Imagen de ajedrez" width="400"/>
 </p>
-
-
