@@ -1,9 +1,13 @@
 class Pieces:
     def __init__(self, color):
-        self.__color__ = color
+        self.color = color  # Cambiado a color
 
 class Rook(Pieces):
-    pass 
+    def __init__(self, color):
+        super().__init__(color)
+        self.__name__ = 'ROOK'
 
 class Pawn(Pieces):
-    pass
+    def __init__(self, color):
+        super().__init__(color)
+        self.__name__ = 'PAWN'
