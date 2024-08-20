@@ -1,6 +1,6 @@
 class Pieces:
     def __init__(self, color):
-        self.color = color  # Cambiado a color
+        self.__color__ = color  # Cambiado a color
 
 class Rook(Pieces):
     def __init__(self, color):
