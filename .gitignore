@@ -1,2 +1,4 @@
 /apuntes.txt
 practicas/
+/.coverage
+/__pycache__
