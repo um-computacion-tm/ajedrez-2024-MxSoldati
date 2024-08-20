@@ -1,4 +1,5 @@
 from chess import Chess
+from exceptions import InvalidMove
 
 def main():
     chess = Chess()
@@ -14,12 +15,9 @@ def play(chess):
         to_row = int(input("To Row: "))
         to_col = int(input("To Col: "))
         # :)
-        chess.move(
-            from_row,
-            from_col,
-            to_row,
-            to_col,
-        )
+        chess.move(from_row, from_col, to_row, to_col)
+    except InvalidMove as e:
+        print("Invalid move", e)
     except Exception as e:           ## Aca atrapamos todas las excepciones que se produzcan
         print("error", e)
 

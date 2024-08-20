@@ -20,6 +20,18 @@ class Board:
         self.__positions__[6][0] = Pawn('WHITE')
         self.__positions__[6][7] = Pawn('WHITE')
 
+    def __str__(self):
+        board_str = ""
+        for row in self.__positions__:
+            for cell in row:
+                if cell is not None:
+                    board_str += str(cell)
+                else:
+                    board_str += " "
+            board_str += "\n"
+        return board_str
+        
+
     def get_piece(self, row, col):
         if self.__positions__[row][col] == None:
             return None

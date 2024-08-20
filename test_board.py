@@ -8,6 +8,22 @@ class TestBoard(unittest.TestCase):
         self.assertIsNone(board.get_piece(0, 1))
         self.assertEqual(board.get_piece(2,2), None)
 
+    def test_str_board(self):
+        board = Board()
+        self.assertEqual(
+            str(board),
+            (
+                "♖      ♖\n"
+                "♙      ♙\n"
+                "        \n"
+                "        \n"
+                "        \n"
+                "        \n"
+                "♟      ♟\n"
+                "♜      ♜\n"
+            )
+        )
+
     def test_get_piece_color(self):
         board = Board()
         piece = board.get_piece(0, 0)
