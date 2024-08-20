@@ -6,13 +6,7 @@ class Chess:
         self.__board__ = Board()
         self.__turn__ = "WHITE"     # Blanco(0,str,True) o Negro(1,str,False). Se elije por explicidad
 
-    def move(
-        self,
-        from_row,
-        from_col,
-        to_row,
-        to_col,
-    ):
+    def move(self, from_row, from_col, to_row, to_col):
         # validate coords        
         piece = self.__board__.get_piece(from_row, from_col)
         self.change_turn()
