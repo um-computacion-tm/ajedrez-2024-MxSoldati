@@ -1,5 +1,5 @@
 import unittest
-from rook import Rook
+from rook import Rook , Pawn
 from board import Board
 
 class TestBoard(unittest.TestCase):
@@ -8,14 +8,24 @@ class TestBoard(unittest.TestCase):
         self.assertIsNone(board.get_piece(0, 1))
         self.assertEqual(board.get_piece(2,2), None)
 
-    def test_get_piece(self):
+    def test_get_piece_color(self):
         board = Board()
         piece = board.get_piece(0, 0)
-        self.assertEqual(piece.color, 'BLACK')
+        self.assertEqual(piece.__color__, 'BLACK')
 
         piece = board.get_piece(7, 7)
-        self.assertIsInstance(piece, Rook)
-        self.assertEqual(piece.color, 'WHITE')
+        self.assertEqual(piece.__color__, 'WHITE')
+
+    def test_get_piece_name(self):
+        board = Board()
+        piece = board.get_piece(0, 0)
+        self.assertEqual(piece.__name__, 'ROOK')
+
+        piece = board.get_piece(1, 0)
+        self.assertEqual(piece.__name__, 'PAWN')
+           
+
+    
 
 
 if __name__ == '__main__':
