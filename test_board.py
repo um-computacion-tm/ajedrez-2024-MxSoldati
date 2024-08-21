@@ -39,10 +39,3 @@ class TestBoard(unittest.TestCase):
 
         piece = board.get_piece(1, 0)
         self.assertEqual(piece.__name__, 'PAWN')
-           
-
-    
-
-
-if __name__ == '__main__':
-    unittest.main()

@@ -33,8 +33,6 @@ class Board:
         
 
     def get_piece(self, row, col):
-        if self.__positions__[row][col] == None:
-            return None
         return self.__positions__[row][col]
 
 

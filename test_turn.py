@@ -12,6 +12,3 @@ class TestTurn(unittest.TestCase):
         chess.change_turn()
         self.assertEqual(chess.turn, "BLACK")
       # Assuming White starts first
-
-if __name__ == '__main__':
-    unittest.main()

@@ -8,7 +8,7 @@ def main():
 
 def play(chess):
     try:
-        # print(chess.show_board())
+        print(chess.show_board())
         print("turn: ", chess.turn)
         from_row = int(input("From row: "))
         from_col = int(input("From col: "))
@@ -20,7 +20,6 @@ def play(chess):
         print("Invalid move", e)
     except Exception as e:           ## Aca atrapamos todas las excepciones que se produzcan
         print("error", e)
-
 
 
 if __name__ == '__main__':
