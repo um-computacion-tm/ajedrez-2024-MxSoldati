@@ -1,3 +1,10 @@
+## 2024-08-20
+
+### Changes
+- Important changes in the repository.
+- Basicaly, delete all branches, leaving only 'main' and 'dev', where in 'dev' going to keep all changes, destroy and fixing de codes, when it's ready, the branch main it would be update with operational code from dev.
+
+------------------
 ## 2024-08-19
 
 
