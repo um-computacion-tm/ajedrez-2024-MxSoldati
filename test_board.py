@@ -5,7 +5,7 @@ from board import Board
 class TestBoard(unittest.TestCase):
     def test_init(self):
         board = Board()
-        self.assertIsNone(board.get_piece(0, 1))
+        self.assertIsNone(board.get_piece(3, 1))
         self.assertEqual(board.get_piece(2,2), None)
 
     def test_str_board(self):
@@ -13,14 +13,14 @@ class TestBoard(unittest.TestCase):
         self.assertEqual(
             str(board),
             (
-                "♖      ♖\n"
-                "♙      ♙\n"
+                "♖♘♗♕♔♗♘♖\n"
+                "♙♙♙♙♙♙♙♙\n"
                 "        \n"
                 "        \n"
                 "        \n"
                 "        \n"
-                "♟      ♟\n"
-                "♜      ♜\n"
+                "♟♟♟♟♟♟♟♟\n"
+                "♜♞♝♛♚♝♞♜\n"
             )
         )
 
