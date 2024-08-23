@@ -1,5 +1,5 @@
 /apuntes.txt
 practicas/
 /.coverage
-/.coverage
+/.coveragerc
 __pycache__/

@@ -70,5 +70,3 @@ class Board:
 
     def get_piece(self, row, col):
         return self.__positions__[row][col]
-
-
