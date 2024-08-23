@@ -1,3 +1,16 @@
+## 2024-08-23
+
+### Removed
+-.coverage from repo and .coveragerc
+
+### Added
+-In chess.py I include a function to validate coords, although if we 'python3 cli.py',
+this coords doesn't work
+
+### Vision 
+- Trying to make it clear how am I going to work my board.py, and thinking about rools of game.
+- Trying to understand why my validate_coords don't work as planed.
+------------------
 ## 2024-08-20
 
 ### Changes

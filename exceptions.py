@@ -1,5 +1,5 @@
 class InvalidMove(Exception):
-    pass
+    ...
 
 class InvalidMoveNoPiece(InvalidMove):
     ...
