@@ -1,3 +1,8 @@
+## 2024-08-27
+
+### Canges
+- i'm going to change the way I have my pieces, where instead of having all in 'pieces', for each type of piece, have his own file.
+
 ## 2024-08-23 
 
 ### Removed
