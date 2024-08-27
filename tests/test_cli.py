@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
-from chess import Chess
-from cli import play
+from game.chess import Chess
+from game.cli import play
 
 
 class TestCli(unittest.TestCase):
@@ -80,3 +80,6 @@ class TestCli(unittest.TestCase):
     #     self.assertEqual(mock_input.call_count, 4)
     #     self.assertEqual(mock_print.call_count, 2)
     #     self.assertEqual(mock_chess_move.call_count, 1)
+
+if __name__ == '__main__':
+    unittest.main()

@@ -1,7 +1,6 @@
 [run]
 source =
-    juego
-    test
+    game
 omit =
     venv/*
     */test*
@@ -16,4 +15,5 @@ exclude_lines =
     if __name__ == '__main__':
     def suite
     __str__
+    __repr__
     main()
