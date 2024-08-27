@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from cli import play
+from game.cli import play
 
 class PieceMovement(ABC):
     @abstractmethod

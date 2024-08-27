@@ -1,4 +1,4 @@
-from rook import Rook , Pawn , Bishop , King , Queen , Horse
+from game.rook import Rook , Pawn , Bishop , King , Queen , Horse
 
 class Board:
     def __init__(self):
