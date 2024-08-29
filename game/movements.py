@@ -19,20 +19,20 @@ class PiceMovements:
 
     def movement_pawn_white(row, col):
         possibles = []
-        if row == 6:
-            possibles.append((row - 1, col))
-            possibles.append((row - 2, col))
-        else:
-            possibles.append((row - 1, col))
-        return possibles
-
-    def movement_pawn_black(row, col):
-        possibles = []
         if row == 1:
             possibles.append((row + 1, col))
             possibles.append((row + 2, col))
         else:
             possibles.append((row + 1, col))
+        return possibles
+
+    def movement_pawn_black(row, col):
+        possibles = []
+        if row == 6:
+            possibles.append((row - 1, col))
+            possibles.append((row - 2, col))
+        else:
+            possibles.append((row - 1, col))
         return possibles
 
 
