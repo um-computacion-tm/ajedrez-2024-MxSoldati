@@ -1,5 +1,5 @@
 from .piece import Piece
-from ..movements import movement_pawn_white
+from ..movements import PiceMovements
 
 class Pawn(Piece):
     white_str = "♟"
@@ -7,7 +7,7 @@ class Pawn(Piece):
 
     def possible_positions(self, row, col):
         if self.__color__ == "WHITE":
-            return movement_pawn_white(row, col)
+            return PiceMovements.movement_pawn_white(row, col)
         elif self.__color__ == "BLACK":
             return (row, col)
         else:
