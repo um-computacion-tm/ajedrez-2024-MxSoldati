@@ -1,3 +1,13 @@
+## 2024-08-29
+
+### Adding 
+- fixing movements of pawn
+- test_pawn
+
+### Vision
+- Getting confused with movements, of where were balck pieces and white pieces :sweat_smile: ; However, I clean up my mess.
+- Next commit, i'm trying to make a review and see if something is missing of what i'm doing.
+------------------
 ## 2024-08-28
 
 ### Adding 
@@ -6,6 +16,7 @@
 ### Vision
 - Now finished the generic moves of pieces, and their tests
 
+------------------
 ## 2024-08-27
 
 ### Changes

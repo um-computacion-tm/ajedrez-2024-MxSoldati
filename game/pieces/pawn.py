@@ -9,9 +9,8 @@ class Pawn(Piece):
         if self.__color__ == "WHITE":
             return PiceMovements.movement_pawn_white(row, col)
         elif self.__color__ == "BLACK":
-            return (row, col)
-        else:
-            return []
+            return PiceMovements.movement_pawn_black(row, col)
+        
     # hay que definir que se mueva, el primer movimiento dos para adelante o uno,
     # y si se puede comer en diagonal y si llega al final del tablero se convierte en reina.
     #def possible_positions_vd(self, row, col):
