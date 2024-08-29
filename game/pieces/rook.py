@@ -1,23 +1,20 @@
 from .piece import Piece
+from ..movements import PiceMovements
 class Rook(Piece):
     white_str = "♜"
     black_str = "♖"
 
+
+
     def possible_positions_vd(self, row, col):
-        possibles = []
-        for next_row in range(row +1, 8): #range(inicio, fin que no esta incluido)
-            possibles.append((next_row, col))
-        return possibles
+        return PiceMovements.movment_vertical_desc(row, col)
     
     def possible_positions_va(self, row, col):
-        possibles = []
-        for next_row in range(row -1, -1, -1): #range(inicio, fin que no esta incluido)
-            possibles.append((next_row, col))
-        return possibles    
-    #definir una fucnion que llame de movimientos.py
-    #en movimientos.py va haber possible_positions, como possible_positions_vertical_asc,possible_positions_vertical_desc,
-    #entre otros posibles movimientos.
-    #aca llamariamos los movimientos posible de la torre.
+        return PiceMovements.movment_vertical_asc(row, col)
+    #definir una fucnion que llame de movment.py
+    #en movment.py va haber possible_positions, como possible_positions_vertical_asc,possible_positions_vertical_desc,
+    #entre otros posibles movment.
+    #aca llamariamos los movment posible de la torre.
 
 
 

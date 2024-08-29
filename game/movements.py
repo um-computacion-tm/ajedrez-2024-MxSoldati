@@ -1,3 +1,60 @@
+# movements.py
+class PiceMovements:
+
+    #VERTICAL MOVEMENTS
+
+    def movment_vertical_desc(row, col):
+        possibles = []
+        for next_row in range(row + 1, 8):
+            possibles.append((next_row, col))
+        return possibles
+
+    def movment_vertical_asc(row, col):
+        possibles = []
+        for next_row in range(row - 1, -1, -1):
+            possibles.append((next_row, col))
+        return possibles
+    
+    #PAWN MOVEMENTS
+
+    def movement_pawn_white(row, col):
+        possibles = []
+        if row == 6:
+            possibles.append((row - 1, col))
+            possibles.append((row - 2, col))
+        else:
+            possibles.append((row - 1, col))
+        return possibles
+
+    def movement_pawn_black(row, col):
+        possibles = []
+        if row == 1:
+            possibles.append((row + 1, col))
+            possibles.append((row + 2, col))
+        else:
+            possibles.append((row + 1, col))
+        return possibles
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #from abc import ABC, abstractmethod
 #from game.cli import play
 
