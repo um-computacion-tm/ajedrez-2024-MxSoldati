@@ -1,4 +1,5 @@
 from .piece import Piece
+from ..movements import movement_pawn_white
 
 class Pawn(Piece):
     white_str = "♟"
@@ -6,9 +7,9 @@ class Pawn(Piece):
 
     def possible_positions(self, row, col):
         if self.__color__ == "WHITE":
-            return movements_pawn_white(row, col)
+            return movement_pawn_white(row, col)
         elif self.__color__ == "BLACK":
-            return m(row, col)
+            return (row, col)
         else:
             return []
     # hay que definir que se mueva, el primer movimiento dos para adelante o uno,

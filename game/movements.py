@@ -3,13 +3,13 @@ class PiceMovements:
 
     #VERTICAL MOVEMENTS
 
-    def movimientos_vertical_desc(row, col):
+    def movment_vertical_desc(row, col):
         possibles = []
         for next_row in range(row + 1, 8):
             possibles.append((next_row, col))
         return possibles
 
-    def movimientos_vertical_asc(row, col):
+    def movment_vertical_asc(row, col):
         possibles = []
         for next_row in range(row - 1, -1, -1):
             possibles.append((next_row, col))
@@ -17,7 +17,7 @@ class PiceMovements:
     
     #PAWN MOVEMENTS
 
-    def movimientos_pawn_white(row, col):
+    def movment_pawn_white(row, col):
         possibles = []
         if row == 6:
             possibles.append((row - 1, col))
@@ -26,7 +26,7 @@ class PiceMovements:
             possibles.append((row - 1, col))
         return possibles
 
-    def movimientos_pawn_black(row, col):
+    def movment_pawn_black(row, col):
         possibles = []
         if row == 1:
             possibles.append((row + 1, col))
@@ -34,7 +34,6 @@ class PiceMovements:
         else:
             possibles.append((row + 1, col))
         return possibles
-    
 
 
 
