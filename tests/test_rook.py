@@ -1,6 +1,6 @@
 import unittest
-from game.pieces.rook import Rook
 from game.board import Board
+from game.pieces.rook import Rook
 
 class TestRook(unittest.TestCase):
 

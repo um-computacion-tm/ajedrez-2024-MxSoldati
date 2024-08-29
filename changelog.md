@@ -1,6 +1,14 @@
+## 2024-08-28
+
+### Adding 
+- movements.py it's going to have all pieces movements, and their possibles moves.
+
+### Vision
+- Now finished the generic moves of pieces, and their tests
+
 ## 2024-08-27
 
-### Canges
+### Changes
 - i'm going to change the way I have my pieces, where instead of having all in 'pieces', for each type of piece, have his own file.
 
 ## 2024-08-23 
