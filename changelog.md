@@ -1,3 +1,9 @@
+## 2024-08-30
+
+### Adding 
+- Horizontal movements and their respectives test_rooks
+
+------------------
 ## 2024-08-29
 
 ### Adding 
@@ -7,6 +13,7 @@
 ### Vision
 - Getting confused with movements, of where were balck pieces and white pieces :sweat_smile: ; However, I clean up my mess.
 - Next commit, i'm trying to make a review and see if something is missing of what i'm doing.
+
 ------------------
 ## 2024-08-28
 

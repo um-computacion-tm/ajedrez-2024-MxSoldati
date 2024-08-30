@@ -7,14 +7,17 @@ class Rook(Piece):
 
 
     def possible_positions_vd(self, row, col):
-        return PiceMovements.movment_vertical_desc(row, col)
+        return PiceMovements.movement_vertical_desc(row, col)
     
     def possible_positions_va(self, row, col):
-        return PiceMovements.movment_vertical_asc(row, col)
-    #definir una fucnion que llame de movment.py
-    #en movment.py va haber possible_positions, como possible_positions_vertical_asc,possible_positions_vertical_desc,
-    #entre otros posibles movment.
-    #aca llamariamos los movment posible de la torre.
+        return PiceMovements.movement_vertical_asc(row, col)
+    
+    def possible_positions_hr(self, row, col):
+        return PiceMovements.movement_horizontal_right(row, col)
+    
+    def possible_positions_hl(self, row, col):
+        return PiceMovements.movement_horizontal_left(row, col)
+
 
 
 
