@@ -29,6 +29,24 @@ class TestRook(unittest.TestCase):
                 possibles,
                 [(3,0), (2,0), (1,0), (0,0)]
         )        
+    
+    def test_move_horizontal_right(self):
+        board = Board()
+        rook = Rook("WHITE", board)
+        possibles = rook.possible_positions_hr(0,4)
+        self.assertEqual(
+                possibles,
+                [(0,5), (0,6), (0,7)]
+        )
+
+    def test_move_horizontal_left(self):
+        board = Board()
+        rook = Rook("WHITE", board)
+        possibles = rook.possible_positions_hl(0,4)
+        self.assertEqual(
+                possibles,
+                [(0,3), (0,2), (0,1), (0,0)]
+        )
 
 
 if __name__ == '__main__':
