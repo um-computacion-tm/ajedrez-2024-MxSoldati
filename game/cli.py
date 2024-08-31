@@ -14,17 +14,13 @@ def play(chess):
         from_col = int(input("From col: "))
         to_row = int(input("To Row: "))
         to_col = int(input("To Col: "))
-        # :)
-        #antes de mover la pieza, validar si la pieza se puede mover
-        chess.validate_coords(from_row, from_col)
-        chess.validate_coords(to_row, to_col)
-        #si la pieza se valida, moverla
+        
+        # Mover la pieza
         chess.move(from_row, from_col, to_row, to_col)
     except InvalidMove as e:
-        print("Invalid move", e)
-    except Exception as e:           ## Aca atrapamos todas las excepciones que se produzcan
-        print("error", e)
-
+        print("Invalid move:", e)
+    except Exception as e:
+        print("Error:", e)
 
 if __name__ == '__main__':
     main()
