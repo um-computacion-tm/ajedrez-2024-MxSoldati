@@ -59,6 +59,7 @@ class TestCli(unittest.TestCase):
         self.assertEqual(mock_print.call_count, 3)
         self.assertEqual(mock_chess_move.call_count, 0)
 
+
     # @patch(  # este patch controla lo que hace el input
     #     'builtins.input',
     #     side_effect=['1', '1', '2', '1'], # estos son los valores que simula lo que ingresaria el usuario

@@ -1,3 +1,12 @@
+## 2024-08-31
+
+### Adding
+- test_chess.py
+
+### Problem
+- When I make an 'python3 -m game.cli', and I try to move a pawn, something happen, that I can't move it. ; see this in class
+
+------------------
 ## 2024-08-30
 
 ### Adding 
