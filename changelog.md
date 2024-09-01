@@ -1,6 +1,19 @@
 ## 2024-08-31
 
 ### Adding
+- test_bishop.py
+
+### Problem
+- Difficulties on making the moves of the bishop
+
+### Vision
+- Taking care of bishop possible movements, and try to finish queen, that's relative the same moves as rook an bishop combine.
+- Thinking about the king mpossible moves.
+
+------------------
+## 2024-08-31
+
+### Adding
 - test_chess.py
 
 ### Problem

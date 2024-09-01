@@ -49,3 +49,19 @@ class PiceMovements:
         else:
             possibles.append((row - 1, col))
         return possibles
+
+    #DIAGONAL MOVEMENTS
+
+    def possible_positions_diagonal_up_right(row, col):
+        ...
+    def possible_positions_diagonal_up_left(row, col):
+        ...
+    def possible_positions_diagonal_down_right(row, col):
+        ...
+    def possible_positions_diagonal_down_left(row, col):
+        ...
+
+       
+
+    
+  
