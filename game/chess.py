@@ -23,16 +23,11 @@ class Chess:
         self.change_turn()
 
 
-    def validate_coords(self, row, col):
-        if type(row) is not int or type(col) is not int:
-            raise InvalidMove(f"Invalid coordinates: ({row}, {col})")
-        if row < 0 or row > 7 or col < 0 or col > 7:
-            raise InvalidMove(f"Invalid coordinates: ({row}, {col})")
-        return True
-        #faltan los test de esta funcion
-        #hacerlo funcionar en el cli
-
-        
+        # validate coords
+        piece = self.__board__.get_piece(from_row, from_col)
+        if piece.valid_positions(from_row, from_col, to_row, to_col):
+            raise InvalidMove()
+        self.change_turn()
     @property
     def turn(self):
         return self.__turn__

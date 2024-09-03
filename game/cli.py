@@ -1,10 +1,11 @@
-from game.chess import Chess
-from game.exceptions import InvalidMove
+from chess import Chess
+
 
 def main():
     chess = Chess()
-    while True:
+    while chess.is_playing():
         play(chess)
+
 
 def play(chess):
     try:
@@ -14,13 +15,17 @@ def play(chess):
         from_col = int(input("From col: "))
         to_row = int(input("To Row: "))
         to_col = int(input("To Col: "))
-        
-        # Mover la pieza
-        chess.move(from_row, from_col, to_row, to_col)
-    except InvalidMove as e:
-        print("Invalid move:", e)
+        # :)
+        chess.move(
+            from_row,
+            from_col,
+            to_row,
+            to_col,
+        )
     except Exception as e:
-        print("Error:", e)
+        print("error", e)
+
+
 
 if __name__ == '__main__':
     main()
