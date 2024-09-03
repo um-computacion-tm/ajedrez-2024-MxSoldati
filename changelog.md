@@ -1,5 +1,14 @@
 ## 2024-08-31
 
+### From class
+- Looking after the movements of rook. We now have to take care of the other pieces
+
+### Problem
+- Having more problems, but being happy :sweat_smile:
+
+------------------
+## 2024-08-31
+
 ### Adding
 - test_bishop.py
 
