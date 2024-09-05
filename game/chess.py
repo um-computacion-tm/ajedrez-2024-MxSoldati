@@ -14,7 +14,6 @@ class Chess:
         # validate coords
         self.validate_coords(from_row, from_col)
         self.validate_coords(to_row, to_col)
-
         # validate move
         piece = self.__board__.get_piece(from_row, from_col)
         if piece.valid_positions(from_row, from_col, to_row, to_col):
@@ -25,12 +24,10 @@ class Chess:
 
     def validate_coords(self, row, col):
         if type(row) is not int or type(col) is not int:
-            raise InvalidMove(f"Invalid coordinates: ({row}, {col})")
+            raise InvalidMove()
         if row < 0 or row > 7 or col < 0 or col > 7:
-            raise InvalidMove(f"Invalid coordinates: ({row}, {col})")
+            raise InvalidMove()
         return True
-        #faltan los test de esta funcion
-        #hacerlo funcionar en el cli
 
         
     @property

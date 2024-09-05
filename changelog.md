@@ -1,3 +1,46 @@
+## 2024-09-05
+
+### Fixing
+- I was knocked up with importing modules, so my way to fixing this was creating a new branch were I have the main, taking some punchs and winning this round jej
+
+### Vision
+- I'm going to focus of the tests of the pieces which make me failed some of the tests
+
+pd: in love with the process!
+------------------
+## 2024-09-03
+
+### From class
+- Looking after the movements of rook. We now have to take care of the other pieces
+
+### Problem
+- I can't understand cli.py
+
+### Vision 
+- Finishing the movements of all pieces and then see what happend with cli
+------------------
+## 2024-09-02
+
+### Adding
+- Queen movements; combining bishop and rook movements we have the queen movements
+
+### Problem
+- Having more problems, but being happy :sweat_smile:
+
+------------------
+## 2024-09-01
+
+### Adding
+- test_bishop.py
+
+### Problem
+- Difficulties on making the moves of the bishop
+
+### Vision
+- Taking care of bishop possible movements, and try to finish queen, that's relative the same moves as rook an bishop combine.
+- Thinking about the king mpossible moves.
+
+------------------
 ## 2024-08-31
 
 ### Adding
