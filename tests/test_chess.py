@@ -1,5 +1,6 @@
 import unittest
-from game.chess import Chess , InvalidMove
+from game.chess import Chess
+from game.exceptions import InvalidMove
 
 
 class TestChess(unittest.TestCase):
@@ -23,6 +24,17 @@ class TestChess(unittest.TestCase):
         # 'hola'
         with self.assertRaises(InvalidMove):
             chess.validate_coords(0, 'hola')
+
+    # Me probe para hacer este test que lo hizo walter y me parecio muy prolijo
+    def test_invalid_move_exception_message(self):
+        chess = Chess()
+        with self.assertRaises(InvalidMove) as context:
+            chess.validate_coords(8, 8)
+        self.assertEqual(str(context.exception), "Movimieto de pieza invalido")
+
+        with self.assertRaises(InvalidMove) as context:
+            chess.validate_coords(0, 'hola')
+        self.assertEqual(str(context.exception), "Movimieto de pieza invalido")
 
 
 if __name__ == '__main__':

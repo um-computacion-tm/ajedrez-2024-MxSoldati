@@ -1,37 +1,27 @@
 from .piece import Piece
 from ..movements import PiceMovements
+
 class Rook(Piece):
     white_str = "♜"
     black_str = "♖"
-
-
-
-    def possible_positions_vd(self, row, col):
-        return PiceMovements.movement_vertical_desc(row, col)
     
-    def possible_positions_va(self, row, col):
-        return PiceMovements.movement_vertical_asc(row, col)
+    def valid_positions(self, from_row, from_col, to_row, to_col):
+        possible_positions = (
+            self.possible_movement_vertical_down(from_row, from_col) +
+            self.possible_movement_vertical_up(from_row, from_col) +
+            self.possible_movement_horizontal_right(from_row, from_col) +
+            self.possible_movement_horizontal_left(from_row, from_col)
+        )
+        return (to_row, to_col) in possible_positions
+
+    def possible_movement_vertical_down(self, row, col):
+        return PiceMovements.movement_vertical_down(self, row, col)
     
-    def possible_positions_hr(self, row, col):
-        return PiceMovements.movement_horizontal_right(row, col)
+    def possible_movement_vertical_up(self, row, col):
+        return PiceMovements.movement_vertical_up(self, row, col)
     
-    def possible_positions_hl(self, row, col):
-        return PiceMovements.movement_horizontal_left(row, col)
-
-
-
-
-
-#        
-#
-#class Rook(Pieces):
-#    def __init__(self, color):
-#        super().__init__(color, "ROOK")
-#
-#    def __str__(self):
-#        if self.__color__ == "WHITE":
-#            return "♜"
-#        else:
-#            return "♖"
-
-
+    def possible_movement_horizontal_right(self, row, col):
+        return PiceMovements.movement_horizontal_right(self, row, col)
+    
+    def possible_movement_horizontal_left(self, row, col):
+        return PiceMovements.movement_horizontal_left(self, row, col)

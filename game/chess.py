@@ -1,5 +1,6 @@
 from game.board import Board
 from game.exceptions import InvalidMove
+from game.exceptions import InvalidTurn, EmptyPosition, InvalidMove
 
 class Chess:
     def __init__(self):
@@ -8,30 +9,27 @@ class Chess:
 
     def is_playing(self):
         return True
-
+    
+    def validate_coords(self, row, col):
+        if type(row) is int and type(col) is int:
+            if 0 <= row < 8 and 0 <= col < 8:
+                return True
+        raise InvalidMove()
+    
     def move(self, from_row, from_col, to_row, to_col,):
 
         # validate coords
-        self.validate_coords(from_row, from_col)
-        self.validate_coords(to_row, to_col)
-
-        # validate move
         piece = self.__board__.get_piece(from_row, from_col)
-        if piece.valid_positions(from_row, from_col, to_row, to_col):
+        if not piece:
+            raise EmptyPosition()
+        if not piece.get_color() == self.__turn__:
+            raise InvalidTurn()
+        if not piece.valid_positions(from_row, from_col, to_row, to_col):
             raise InvalidMove()
-        piece = self.__board__.get_piece(to_row, to_col) 
+        self.__board__.move(from_row, from_col, to_row, to_col)
         self.change_turn()
 
-
-    def validate_coords(self, row, col):
-        if type(row) is not int or type(col) is not int:
-            raise InvalidMove(f"Invalid coordinates: ({row}, {col})")
-        if row < 0 or row > 7 or col < 0 or col > 7:
-            raise InvalidMove(f"Invalid coordinates: ({row}, {col})")
-        return True
-        #faltan los test de esta funcion
-        #hacerlo funcionar en el cli
-
+    
         
     @property
     def turn(self):

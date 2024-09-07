@@ -1,6 +1,8 @@
 from game.chess import Chess
 from game.exceptions import InvalidMove
 
+##### PARA CORRER EL JUEGO 'python3 -m game.cli' #####
+
 def main():
     chess = Chess()
     while True:
@@ -16,7 +18,7 @@ def play(chess):
         to_col = int(input("To Col: "))
         
         # Mover la pieza
-        chess.move(from_row, from_col, to_row, to_col)
+        chess.move (from_row, from_col, to_row, to_col)
     except InvalidMove as e:
         print("Invalid move:", e)
     except Exception as e:
