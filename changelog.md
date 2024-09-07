@@ -12,6 +12,7 @@
 ### Reflexion of this day
 - Practicaly, I'm SO HAPPY, because it was a CAOS, and now I was able to solve all type of problem
 - :grin: :grin: Understanding of what I'm doing :grin: :grin:
+- Super brilliant idea to have started whit the `Fixing-dev` branch
 ---
 
 ## 2024-09-05
@@ -21,6 +22,7 @@
 
 ### Vision
 - I'm going to focus on the tests of the pieces which made me fail some of the tests
+-I create a new branch call `Fixing-dev` were I merge it whit the main, so I can start from a nice and good care code.
 
 pd: in love with the process!
 
