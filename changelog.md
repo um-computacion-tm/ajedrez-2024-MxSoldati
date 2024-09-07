@@ -1,3 +1,14 @@
+## 2024-09-07
+
+### Added
+- `test_queen.py`; `test_pawn`
+- Imporved movements of `Queen` and `Pawn`.
+
+### Vision
+- How I have to manage pawn movements? Too many paths from this piece
+
+---
+
 ## 2024-09-06
 
 ### Added
@@ -13,6 +24,7 @@
 - Practicaly, I'm SO HAPPY, because it was a CAOS, and now I was able to solve all type of problem
 - :grin: :grin: Understanding of what I'm doing :grin: :grin:
 - Super brilliant idea to have started whit the `Fixing-dev` branch
+
 ---
 
 ## 2024-09-05
