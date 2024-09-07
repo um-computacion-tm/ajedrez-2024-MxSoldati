@@ -1,6 +1,8 @@
 from game.chess import Chess
 from game.exceptions import InvalidMove
 
+##### PARA CORRER EL JUEGO 'python3 -m game.cli' #####
+
 def main():
     chess = Chess()
     while True:
