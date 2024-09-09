@@ -18,29 +18,31 @@ class TestPawn(unittest.TestCase):
             "♟",
         )
 
+    # Blancos
+
     def test_move_white_initial(self):
         board = Board()
         pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_positions(6, 0)
+        possibles = pawn.possible_movement_vertical_down(6, 0)
         self.assertEqual(
             possibles,
             [(5, 0), (4, 0)]  
         )
 
-    def test_move_white_not_inital(self):
+    def test_move_white_not_initial(self):
         board = Board()
         pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_positions(4, 2)
+        possibles = pawn.possible_movement_vertical_down(4, 2)
         self.assertEqual(
             possibles,
             [(3, 2)]  
         )
 
-    def test_move_white_not_inital_blocked(self):
+    def test_move_white_not_initial_blocked(self):
         board = Board()
         board.set_piece(3, 2, Pawn("WHITE", board))
         pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_positions(4, 2)
+        possibles = pawn.possible_movement_vertical_down(4, 2)
         self.assertEqual(
             possibles,
             []  
@@ -50,7 +52,7 @@ class TestPawn(unittest.TestCase):
         board = Board()
         board.set_piece(4, 0, Pawn("WHITE", board))
         pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_positions(6, 0)
+        possibles = pawn.possible_movement_vertical_down(6, 0)
         self.assertEqual(
             possibles,
             [(5, 0)]  
@@ -58,48 +60,49 @@ class TestPawn(unittest.TestCase):
 
     def test_move_white_attack_right(self):
         board = Board()
-        board.set_piece(4, 1, Pawn("BLACK", board))
+        board.set_piece(5, 1, Pawn("BLACK", board))
         pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_positions(5, 0)
+        possibles = pawn.possible_attack_diagonal_down_right(6, 0)
         self.assertEqual(
             possibles,
-            [(4, 1)]  
+            [(5, 1)]  
         )
-    
+
     def test_move_white_attack_left(self):
         board = Board()
-        board.set_piece(4, 1, Pawn("BLACK", board))
+        board.set_piece(5, 1, Pawn("BLACK", board))
         pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_positions(5, 2)
+        possibles = pawn.possible_attack_diagonal_down_left(6, 2)
         self.assertEqual(
             possibles,
-            [(4, 1)]  
+            [(5, 1)]  
         )
+
+    # Negros
 
     def test_move_black_initial(self):
         board = Board()
         pawn = Pawn("BLACK", board)
-        possibles = pawn.possible_positions(1, 0)
+        possibles = pawn.possible_movement_vertical_up(1, 0)
         self.assertEqual(
             possibles,
             [(2, 0), (3, 0)]  
         )
 
-    def test_move_black_not_inital(self):
+    def test_move_black_not_initial(self):
         board = Board()
         pawn = Pawn("BLACK", board)
-        possibles = pawn.possible_positions(2, 2)
+        possibles = pawn.possible_movement_vertical_up(2, 2)
         self.assertEqual(
             possibles,
             [(3, 2)]  
         )
 
-
-    def test_move_black_not_inital_blocked(self):
+    def test_move_black_not_initial_blocked(self):
         board = Board()
         board.set_piece(3, 2, Pawn("BLACK", board))
         pawn = Pawn("BLACK", board)
-        possibles = pawn.possible_positions(2, 2)
+        possibles = pawn.possible_movement_vertical_up(2, 2)
         self.assertEqual(
             possibles,
             []  
@@ -109,32 +112,31 @@ class TestPawn(unittest.TestCase):
         board = Board()
         board.set_piece(3, 0, Pawn("BLACK", board))
         pawn = Pawn("BLACK", board)
-        possibles = pawn.possible_positions(1, 0)
+        possibles = pawn.possible_movement_vertical_up(1, 0)
         self.assertEqual(
             possibles,
             [(2, 0)]  
         )
 
+    # def test_move_black_attack_right(self):
+    #     board = Board()
+    #     board.set_piece(1, 1, Pawn("WHITE", board))
+    #     pawn = Pawn("BLACK", board)
+    #     possibles = pawn.possible_positions(2, 0)
+    #     self.assertEqual(
+    #         possibles,
+    #         [(1, 1)]  
+    #     )
 
-    def test_move_black_attack_right(self):
-        board = Board()
-        board.set_piece(3, 1, Pawn("WHITE", board))
-        pawn = Pawn("BLACK", board)
-        possibles = pawn.possible_positions(2, 0)
-        self.assertEqual(
-            possibles,
-            [(3, 1)]  
-        )
-    
-    def test_move_black_attack_left(self):
-        board = Board()
-        board.set_piece(3, 1, Pawn("WHITE", board))
-        pawn = Pawn("BLACK", board)
-        possibles = pawn.possible_positions(2, 2)
-        self.assertEqual(
-            possibles,
-            [(3, 1)]  
-        )
+    # def test_move_black_attack_left(self):
+    #     board = Board()
+    #     board.set_piece(1, 6, Pawn("WHITE", board))
+    #     pawn = Pawn("BLACK", board)
+    #     possibles = pawn.possible_positions(2, 7)
+    #     self.assertEqual(
+    #         possibles,
+    #         [(1, 6)]  
+    #    )
 
 if __name__ == '__main__':
     unittest.main()

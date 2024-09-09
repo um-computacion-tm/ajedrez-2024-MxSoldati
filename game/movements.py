@@ -115,28 +115,4 @@ class PiceMovements:
     #Pawn Movements
     #Llamo a las funciones de los movimientos ya creados, y se los encajo a los peones
 
-    def possible_positions_pawn_white(self, row, col):
-        possibles = []
-        if row == 6:  # Movimiento inicial del peón blanco
-            possibles.extend(self.movement_vertical_down(row, col)[:2])
-        else:
-            possibles.extend(self.movement_vertical_down(row, col)[:1])
-
-        # Movimiento de ataque en diagonal
-        possibles.extend(self.possible_positions_diagonal_down_left(row, col))
-        possibles.extend(self.possible_positions_diagonal_down_right(row, col))
-
-        return possibles
-
-    def possible_positions_pawn_black(self, row, col):
-        possibles = []
-        if row == 1:  # Movimiento inicial del peón negro
-            possibles.extend(self.movement_vertical_up(row, col)[:2])
-        else:
-            possibles.extend(self.movement_vertical_up(row, col)[:1])
-
-        # Movimiento de ataque en diagonal
-        possibles.extend(self.possible_positions_diagonal_up_left(row, col))
-        possibles.extend(self.possible_positions_diagonal_up_right(row, col))
-
-        return possibles
+    
