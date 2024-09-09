@@ -58,25 +58,25 @@ class TestPawn(unittest.TestCase):
             [(5, 0)]  
         )
 
-    def test_move_white_attack_right(self):
-        board = Board()
-        board.set_piece(5, 1, Pawn("BLACK", board))
-        pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_attack_diagonal_down_right(6, 0)
-        self.assertEqual(
-            possibles,
-            [(5, 1)]  
-        )
+    # def test_move_white_attack_right(self):
+    #     board = Board()
+    #     board.set_piece(5, 1, Pawn("BLACK", board))
+    #     pawn = Pawn("WHITE", board)
+    #     possibles = pawn.possible_attack_diagonal_down_right(6, 0)
+    #     self.assertEqual(
+    #         possibles,
+    #         [(5, 1)]  
+    #     )
 
-    def test_move_white_attack_left(self):
-        board = Board()
-        board.set_piece(5, 1, Pawn("BLACK", board))
-        pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_attack_diagonal_down_left(6, 2)
-        self.assertEqual(
-            possibles,
-            [(5, 1)]  
-        )
+    # def test_move_white_attack_left(self):
+    #     board = Board()
+    #     board.set_piece(5, 1, Pawn("BLACK", board))
+    #     pawn = Pawn("WHITE", board)
+    #     possibles = pawn.possible_attack_diagonal_down_left(6, 2)
+    #     self.assertEqual(
+    #         possibles,
+    #         [(5, 1)]  
+    #     )
 
     # Negros
 

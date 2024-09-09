@@ -26,22 +26,23 @@ class King(Piece):
         return PiceMovements.movement_vertical_up(self, row, col)[:1]
     
     def possible_movement_horizontal_left(self, row, col):
-        return PiceMovements.movement_horizontal_left(self, row, col)[:1]
+        #print(f'esto es el mov {PiceMovements.movement_horizontal_left(self, row, col)[:1]}')
+        return PiceMovements.movement_horizontal_left(self, row, col)[:1]  
     
     def possible_movement_horizontal_right(self, row, col):
         return PiceMovements.movement_horizontal_right(self, row, col)[:1]
     
     def possible_movement_diagonal_down_left(self, row, col):
-        return PiceMovements.movement_diagonal_down_left(self, row, col)[:1]
+        return PiceMovements.possible_positions_diagonal_down_left(self, row, col)[:1]
     
     def possible_movement_diagonal_down_right(self, row, col):
-        return PiceMovements.movement_diagonal_down_right(self, row, col)[:1]
+        return PiceMovements.possible_positions_diagonal_down_right(self, row, col)[:1]
     
     def possible_movement_diagonal_up_left(self, row, col):
-        return PiceMovements.movement_diagonal_up_left(self, row, col)[:1]
+        return PiceMovements.possible_positions_diagonal_up_left(self, row, col)[:1]
     
     def possible_movement_diagonal_up_right(self, row, col):
-        return PiceMovements.movement_diagonal_up_right(self, row, col)[:1]
+        return PiceMovements.possible_positions_diagonal_up_right(self, row, col)[:1]
     
 
     

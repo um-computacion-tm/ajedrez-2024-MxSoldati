@@ -50,8 +50,4 @@ class Pawn(Piece):
         ...
     
     def possible_attack_diagonal_up_right(self, row, col):
-        # possible = []
-        # if PiceMovements.movement_diagonal_up_right(self, row, col)[:1] != None:
-        #     possible.extend.PiceMovements.movement_diagonal_up_right(self, row, col)[:1]
-        # return possible
         ...

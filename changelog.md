@@ -1,3 +1,16 @@
+
+
+## 2024-09-08
+
+### Added
+- `king.py` ; `test_pawn`; `test_king`
+- Imporved movements of `Queen` and `Pawn`.
+
+### Vision
+- Start with the horse, and finish it
+
+---
+
 ## 2024-09-07
 
 ### Added

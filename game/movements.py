@@ -45,6 +45,7 @@ class PiceMovements:
                 if other_piece.__color__ != self.__color__:
                     possibles.append((row, next_col))
                 break
+            #print(f"No piece at ({row}, {next_col}). Adding to possibles.")
             possibles.append((row, next_col))
         return possibles
     
@@ -110,9 +111,3 @@ class PiceMovements:
             else:
                 break
         return possibles
-
-
-    #Pawn Movements
-    #Llamo a las funciones de los movimientos ya creados, y se los encajo a los peones
-
-    
