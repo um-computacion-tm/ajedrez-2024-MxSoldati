@@ -3,6 +3,16 @@
 ## 2024-09-08
 
 ### Added
+- `test_knight`
+
+### Vision
+- Miss their moves, and I have to see were I make that, because there is an F in my test_coverage.
+- Tomorrow, see what's going on with my `cli.py` ; see `pawn.py` and `knight.py` moves.
+---
+
+## 2024-09-08
+
+### Added
 - `king.py` ; `test_pawn`; `test_king`
 - Imporved movements of `Queen` and `Pawn`.
 
