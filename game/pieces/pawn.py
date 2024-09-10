@@ -8,12 +8,12 @@ class Pawn(Piece):
     def valid_positions(self, from_row, from_col, to_row, to_col):
         if self.__color__ == "WHITE":
             possible_positions = (
-                self.possible_movement_vertical_down(from_row, from_col) +
+                self.possible_movement_vertical_down(from_row, from_col) + 
                 self.possible_attack_diagonal_down_left(from_row, from_col) +
                 self.possible_attack_diagonal_down_right(from_row, from_col)
             )
         else:
-            possible_positions(
+            possible_positions = (
                 self.possible_movement_vertical_up(from_row, from_col) +
                 self.possible_attack_diagonal_up_left(from_row, from_col) +
                 self.possible_attack_diagonal_up_right(from_row, from_col)
@@ -27,14 +27,6 @@ class Pawn(Piece):
         else:
             return PiceMovements.movement_vertical_down(self, row, col)[:1]
 
-    def possible_attack_diagonal_down_left(self, row, col): 
-        ...
-        
-
-
-    def possible_attack_diagonal_down_right(self, row, col):
-        ...
-
 
     #Para pawn negro
 
@@ -45,9 +37,17 @@ class Pawn(Piece):
             return PiceMovements.movement_vertical_up(self, row, col)[:1]
 
 
+    def possible_attack_diagonal_down_left(self, row, col): 
+        return [(),]
+        
+
+
+    def possible_attack_diagonal_down_right(self, row, col):
+        return [(),]
+
 
     def possible_attack_diagonal_up_left(self, row, col):
-        ...
+        return [(),]
     
     def possible_attack_diagonal_up_right(self, row, col):
-        ...
+        return [(),]

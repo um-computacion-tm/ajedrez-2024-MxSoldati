@@ -1,4 +1,4 @@
-from .pieces import Rook , Pawn , Bishop , King , Queen , Horse
+from .pieces import Rook , Pawn , Bishop , King , Queen , Knight
 from .exceptions import OutOfBoard
 class Board:
     def __init__(self):
@@ -14,11 +14,11 @@ class Board:
         self.__positions__[7][7] = Rook('WHITE', self)  # White
         self.__positions__[7][0] = Rook('WHITE', self)
 
-        # Horses 
-        self.__positions__[0][1] = Horse('BLACK', self)
-        self.__positions__[0][6] = Horse('BLACK', self)
-        self.__positions__[7][1] = Horse('WHITE', self)
-        self.__positions__[7][6] = Horse('WHITE', self)
+        # Knights 
+        self.__positions__[0][1] = Knight('BLACK', self)
+        self.__positions__[0][6] = Knight('BLACK', self)
+        self.__positions__[7][1] = Knight('WHITE', self)
+        self.__positions__[7][6] = Knight('WHITE', self)
 
 
         # Bishops

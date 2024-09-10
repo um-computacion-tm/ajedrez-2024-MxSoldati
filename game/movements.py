@@ -111,3 +111,7 @@ class PiceMovements:
             else:
                 break
         return possibles
+
+
+
+        ## Movimientos de los caballitos
