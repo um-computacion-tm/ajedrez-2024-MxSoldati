@@ -137,6 +137,15 @@ class TestPawn(unittest.TestCase):
     #         possibles,
     #         [(1, 6)]  
     #    )
-
+    # def test_invalid_move(self):
+    #     self.board.set_piece(0, 0, Pawn("WHITE", self.board))  
+    #     pawn = self.board.get_piece(0, 0)  
+    #     is_possible = pawn.valid_positions(
+    #         from_row=0,
+    #         from_col=0,
+    #         to_row=1,
+    #         to_col=1,
+    #     )
+    #     self.assertFalse(is_possible)
 if __name__ == '__main__':
     unittest.main()
