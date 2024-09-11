@@ -22,16 +22,19 @@ class Pawn(Piece):
 
 
         
-    def possible_movement_vertical_down(self, row, col, start_row=6):
-        return self.possible_movement_vertical(row, col, PiceMovements.movement_vertical_down, start_row)
+    def possible_movement_vertical_down(self, row, col, start_row=6): # como parametro preguntamos si es el primer movimiento o no
+        return self.possible_movement_vertical(row, col, PiceMovements.movement_vertical_down, start_row) 
     def possible_movement_vertical_up(self, row, col, start_row=1):
-        return self.possible_movement_vertical(row, col, PiceMovements.movement_vertical_up, start_row)
+        return self.possible_movement_vertical(row, col, PiceMovements.movement_vertical_up, start_row)  
+    # con estas funciones podemos unir sus movimientos verticales, para que quede bien refactorizado, fua la forma con la que siento que sirve
+    # Usamos una funcion como parametro para ver que movimiento vertical es, nueva implementacion de parametros en funciones.
+    # Se puede hacer con un if, pero no lo veo tan limpio como con esta forma de hacerlo
         
-    def possible_movement_vertical(self, row, col, movement_func, start_row):
-        import ipdb; ipdb.set_trace()
-        if row == start_row and self.__board__.get_piece(row + 2 , col) == None:
+    def possible_movement_vertical(self, row, col, movement_func, start_row): # aca traemos esa funcion (movement_func) como parametro
+        # import ipdb; ipdb.set_trace()
+        if row == start_row and self.__board__.get_piece(row + 2 , col) == None: 
             return movement_func(self, row, col)[:2]
-        elif self.__board__.get_piece(row + 1 , col) == None:
+        elif self.__board__.get_piece(row + 1 , col) == None:   
             return movement_func(self, row, col)[:1]
         else:
             return []
@@ -47,34 +50,16 @@ class Pawn(Piece):
         return movement_func(self, row, col)[:1]
 
 
-    #Para pawn blanco
-    # def possible_movement_vertical_down(self, row, col):
-    #     if row == 6:
-    #         return PiceMovements.movement_vertical_down(self, row, col)[:2]
-    #     else:
-    #         return PiceMovements.movement_vertical_down(self, row, col)[:1]
 
 
-    # #Para pawn negro
 
-    # def possible_movement_vertical_up(self, row, col):
-    #     if row == 1:
-    #         return PiceMovements.movement_vertical_up(self, row, col)[:2]
-    #     else:
-    #         return PiceMovements.movement_vertical_up(self, row, col)[:1]
 
 
     def possible_attack_diagonal_down_left(self, row, col): 
         return [(),]
-        
-
-
     def possible_attack_diagonal_down_right(self, row, col):
         return [(),]
-
-
     def possible_attack_diagonal_up_left(self, row, col):
         return [(),]
-    
     def possible_attack_diagonal_up_right(self, row, col):
         return [(),]
