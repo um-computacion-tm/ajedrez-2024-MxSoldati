@@ -42,24 +42,35 @@ class Pawn(Piece):
 
 
     def possible_attack_diagonal_down_left(self, row, col):
-        return self.possible_attack_diagonal(row, col, PiceMovements.movement_diagonal_down_left)
+        if self.__color__ != self.__board__.get_piece(row + 1, col - 1).__color__:
+            return [(row + 1, col - 1)]
+        return []
     def possible_attack_diagonal_down_right(self, row, col):
-        return self.possible_attack_diagonal(row, col, PiceMovements.movement_diagonal_down_right)
+        if self.__color__ != self.__board__.get_piece(row + 1, col + 1).__color__:
+            return [(row + 1, col + 1)]
+        return []
     
-    def possible_attack_diagonal_down(self, row, col, movement_func):
-        return movement_func(self, row, col)[:1]
 
-
-
-
-
-
-
-    def possible_attack_diagonal_down_left(self, row, col): 
-        return [(),]
-    def possible_attack_diagonal_down_right(self, row, col):
-        return [(),]
     def possible_attack_diagonal_up_left(self, row, col):
+        if self.__color__ != self.__board__.get_piece(row - 1, col - 1).__color__:
+            return [(row - 1, col - 1)]
         return [(),]
     def possible_attack_diagonal_up_right(self, row, col):
+        if self.__color__ != self.__board__.get_piece(row - 1, col + 1).__color__:
+            return [(row - 1, col + 1)]
         return [(),]
+
+
+
+
+
+
+
+    # def possible_attack_diagonal_down_left(self, row, col): 
+    #     return [(),]
+    # def possible_attack_diagonal_down_right(self, row, col):
+    #     return [(),]
+    # def possible_attack_diagonal_up_left(self, row, col):
+    #     return [(),]
+    # def possible_attack_diagonal_up_right(self, row, col):
+    #     return [(),]
