@@ -111,18 +111,3 @@ class PiceMovements:
             else:
                 break
         return possibles
-    
-    def possible_knight_positions(self, row, col):
-        possibles = []
-        for i in range(-2, 3):
-            for j in range(-2, 3):
-                if abs(i) + abs(j) == 3:
-                    next_row, next_col = row + i, col + j
-                    if 0 <= next_row < 8 and 0 <= next_col < 8:
-                        other_piece = self.__board__.get_piece(next_row, next_col)
-                        if other_piece is None or other_piece.__color__ != self.__color__:
-                            possibles.append((next_row, next_col))
-
-
-
-        ## Movimientos de los caballitos
