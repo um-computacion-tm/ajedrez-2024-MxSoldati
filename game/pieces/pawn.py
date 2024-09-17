@@ -10,14 +10,12 @@ class Pawn(Piece):
         if self.__color__ == "WHITE":
             possible_positions = (
                 self.possible_movement_vertical_up_and_down(from_row, from_col) + 
-                self.possible_attack_diagonal_down_left(from_row, from_col) +
-                self.possible_attack_diagonal_down_right(from_row, from_col)
+                self.possible_attack_diagonal(from_row, from_col) 
             )
         else:
             possible_positions = (
                 self.possible_movement_vertical_up_and_down(from_row, from_col) +
-                self.possible_attack_diagonal_up_left(from_row, from_col) +
-                self.possible_attack_diagonal_up_right(from_row, from_col)
+                self.possible_attack_diagonal(from_row, from_col) 
             )
         return (to_row, to_col) in possible_positions
         
@@ -40,39 +38,40 @@ class Pawn(Piece):
             return [(row + 1 * direction, col)]
         return []
 
+    def possible_attack_diagonal(self, row, col):
+        if self.__color__ == "WHITE":
+            return self.possible_attack_diagonal_direction(row, col, -1, -1) + \
+                   self.possible_attack_diagonal_direction(row, col, -1, 1)
+        else:
+            return self.possible_attack_diagonal_direction(row, col, 1, -1) + \
+                   self.possible_attack_diagonal_direction(row, col, 1, 1)
+
+    def possible_attack_diagonal_direction(self, row, col, row_offset, col_offset):
+        target_row = row + row_offset
+        target_col = col + col_offset
+        if 0 <= target_row < 8 and 0 <= target_col < 8:
+            piece = self.__board__.get_piece(target_row, target_col)
+            if piece is not None and piece.__color__ != self.__color__:
+                return [(target_row, target_col)]
+        return []
 
     # Falta refactorizarlo
-    def possible_attack_diagonal_down_left(self, row, col):
-        if self.__board__.get_piece(row - 1, col - 1) is not None and self.__board__.get_piece(row - 1, col - 1).__color__ != self.__color__:
-            return [(row - 1, col - 1)]
-        return []
-    def possible_attack_diagonal_down_right(self, row, col):
-        if self.__board__.get_piece(row - 1, col + 1) is not None and self.__board__.get_piece(row - 1, col + 1).__color__ != self.__color__:
-            return [(row - 1, col + 1)]
-        return []
+    # def possible_attack_diagonal_down_left(self, row, col):
+    #     if self.__board__.get_piece(row - 1, col - 1) is not None and self.__board__.get_piece(row - 1, col - 1).__color__ != self.__color__:
+    #         return [(row - 1, col - 1)]
+    #     return []
+    # def possible_attack_diagonal_down_right(self, row, col):
+    #     if self.__board__.get_piece(row - 1, col + 1) is not None and self.__board__.get_piece(row - 1, col + 1).__color__ != self.__color__:
+    #         return [(row - 1, col + 1)]
+    #     return []
     
 
-    def possible_attack_diagonal_up_left(self, row, col):
-
-        if self.__board__.get_piece(row + 1, col - 1) is not None and self.__board__.get_piece(row + 1, col - 1).__color__ != self.__color__:
-            return [(row + 1, col - 1)]
-        return []
-    def possible_attack_diagonal_up_right(self, row, col):
-        if self.__board__.get_piece(row + 1, col + 1) is not None and self.__board__.get_piece(row + 1, col + 1).__color__ != self.__color__:
-            return [(row + 1, col + 1)]
-        return []
-
-
-
-
-
-
-
-    # def possible_attack_diagonal_down_left(self, row, col): 
-    #     return [(),]
-    # def possible_attack_diagonal_down_right(self, row, col):
-    #     return [(),]
     # def possible_attack_diagonal_up_left(self, row, col):
-    #     return [(),]
+
+    #     if self.__board__.get_piece(row + 1, col - 1) is not None and self.__board__.get_piece(row + 1, col - 1).__color__ != self.__color__:
+    #         return [(row + 1, col - 1)]
+    #     return []
     # def possible_attack_diagonal_up_right(self, row, col):
-    #     return [(),]
+    #     if self.__board__.get_piece(row + 1, col + 1) is not None and self.__board__.get_piece(row + 1, col + 1).__color__ != self.__color__:
+    #         return [(row + 1, col + 1)]
+    #     return []

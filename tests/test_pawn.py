@@ -93,7 +93,7 @@ class TestPawn(unittest.TestCase):
         board = Board()
         board.set_piece(5, 1, Pawn("BLACK", board))
         pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_attack_diagonal_down_right(6, 0)
+        possibles = pawn.possible_attack_diagonal(6, 0)
         self.assertEqual(
             possibles,
             [(5, 1)]  
@@ -103,7 +103,7 @@ class TestPawn(unittest.TestCase):
         board = Board()
         board.set_piece(5, 1, Pawn("BLACK", board))
         pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_attack_diagonal_down_left(6, 2)
+        possibles = pawn.possible_attack_diagonal(6, 2)
         self.assertEqual(
             possibles,
             [(5, 1)]  
@@ -113,7 +113,7 @@ class TestPawn(unittest.TestCase):
         board = Board()
         board.set_piece(5, 1, Pawn("WHITE", board))
         pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_attack_diagonal_down_right(6, 0)
+        possibles = pawn.possible_attack_diagonal(6, 0)
         self.assertEqual(
             possibles,
             []  
@@ -123,7 +123,7 @@ class TestPawn(unittest.TestCase):
         board = Board()
         board.set_piece(5, 1, Pawn("WHITE", board))
         pawn = Pawn("WHITE", board)
-        possibles = pawn.possible_attack_diagonal_down_left(6, 2)
+        possibles = pawn.possible_attack_diagonal(6, 2)
         self.assertEqual(
             possibles,
             []  
@@ -193,7 +193,7 @@ class TestPawn(unittest.TestCase):
         board = Board()
         board.set_piece(3, 1, Pawn("WHITE", board))
         pawn = Pawn("BLACK", board)
-        possibles = pawn.possible_attack_diagonal_up_right(2, 0)
+        possibles = pawn.possible_attack_diagonal(2, 0)
         self.assertEqual(
             possibles,
             [(3, 1)]  
@@ -203,7 +203,7 @@ class TestPawn(unittest.TestCase):
         board = Board()
         board.set_piece(3, 6, Pawn("WHITE", board))
         pawn = Pawn("BLACK", board)
-        possibles = pawn.possible_attack_diagonal_up_left(2, 7)
+        possibles = pawn.possible_attack_diagonal(2, 7)
         self.assertEqual(
             possibles,
             [(3, 6)]  
@@ -213,7 +213,7 @@ class TestPawn(unittest.TestCase):
         board = Board()
         board.set_piece(3, 1, Pawn("BLACK", board))
         pawn = Pawn("BLACK", board)
-        possibles = pawn.possible_attack_diagonal_up_right(2, 0)
+        possibles = pawn.possible_attack_diagonal(2, 0)
         self.assertEqual(
             possibles,
             []  
@@ -223,7 +223,7 @@ class TestPawn(unittest.TestCase):
         board = Board()
         board.set_piece(3, 6, Pawn("BLACK", board))
         pawn = Pawn("BLACK", board)
-        possibles = pawn.possible_attack_diagonal_up_left(2, 7)
+        possibles = pawn.possible_attack_diagonal(2, 7)
         self.assertEqual(
             possibles,
             []
