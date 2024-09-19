@@ -65,3 +65,10 @@ class Board:
         origin = self.get_piece(from_row, from_col)
         self.set_piece(to_row, to_col, origin)
         self.set_piece(from_row, from_col, None)
+
+    def change_piece(self, row, col, pawn):
+        current_piece = self.get_piece(row, col)
+        if isinstance(current_piece, Pawn):
+            if (current_piece.__color__ == "WHITE" and row == 0) or (current_piece.__color__ == "BLACK" and row == 7):
+                pawn = Queen(current_piece.__color__, self)
+        self.set_piece(row, col, pawn)

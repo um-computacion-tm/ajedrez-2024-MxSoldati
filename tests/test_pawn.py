@@ -1,6 +1,7 @@
 import unittest
 from game.board import Board
 from game.pieces.pawn import Pawn
+from game.pieces.queen import Queen
 
 class TestPawn(unittest.TestCase):
 
@@ -228,7 +229,22 @@ class TestPawn(unittest.TestCase):
             possibles,
             []
         )
-        
+
+    # def test_promote_pawn_white(self):
+    #     board = Board()
+    #     board.set_piece(1, 0, Pawn("WHITE", board))
+    #     pawn = Pawn("WHITE", board)
+    #     board.promote_pawn(1, 0, pawn)
+    #     self.assertIsInstance(board.get_piece(0, 0), Queen)
+    
+    # def test_promote_pawn_black(self):
+    #     board = Board()
+    #     board.set_piece(6, 0, Pawn("BLACK", board))
+    #     pawn = Pawn("BLACK", board)
+    #     board.promote_pawn(6, 0, pawn)
+    #     self.assertIsInstance(board.get_piece(7, 0), Queen)
+
+
     def test_invalid_move_white(self):
 
         self.board.set_piece(6, 1, Pawn("WHITE", self.board))  

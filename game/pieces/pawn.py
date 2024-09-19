@@ -1,5 +1,6 @@
 from .piece import Piece
 from ..movements import PiceMovements
+from .queen import Queen
 
 class Pawn(Piece):
     white_str = "♟"
@@ -54,24 +55,7 @@ class Pawn(Piece):
             if piece is not None and piece.__color__ != self.__color__:
                 return [(target_row, target_col)]
         return []
-
-    # Falta refactorizarlo
-    # def possible_attack_diagonal_down_left(self, row, col):
-    #     if self.__board__.get_piece(row - 1, col - 1) is not None and self.__board__.get_piece(row - 1, col - 1).__color__ != self.__color__:
-    #         return [(row - 1, col - 1)]
-    #     return []
-    # def possible_attack_diagonal_down_right(self, row, col):
-    #     if self.__board__.get_piece(row - 1, col + 1) is not None and self.__board__.get_piece(row - 1, col + 1).__color__ != self.__color__:
-    #         return [(row - 1, col + 1)]
-    #     return []
     
-
-    # def possible_attack_diagonal_up_left(self, row, col):
-
-    #     if self.__board__.get_piece(row + 1, col - 1) is not None and self.__board__.get_piece(row + 1, col - 1).__color__ != self.__color__:
-    #         return [(row + 1, col - 1)]
-    #     return []
-    # def possible_attack_diagonal_up_right(self, row, col):
-    #     if self.__board__.get_piece(row + 1, col + 1) is not None and self.__board__.get_piece(row + 1, col + 1).__color__ != self.__color__:
-    #         return [(row + 1, col + 1)]
-    #     return []
+    # Ver como puedo ponerlo en mi codigo...
+    def promote_pawn(self, row, col):
+        self.__board__.change_piece(row, col, Queen(self.__color__, self.__board))
