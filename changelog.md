@@ -1,10 +1,16 @@
+## 2024-09-20
+
+### Fixed
+- All the tests from pieces have their own board. Take that and keep it all together (insted of a `setUp`, with their new board, use `Board(for_test=True)`)
+
+---
+
 ## 2024-09-19
 
 ### Added
 - Finished piece moves.
 
-### Fix
-
+### Fixed
 - Refactoring pawn movements, and making a change of piece by a queen.
 
 ---

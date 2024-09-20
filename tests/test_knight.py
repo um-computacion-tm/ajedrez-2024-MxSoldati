@@ -6,22 +6,19 @@ from game.pieces.pawn import Pawn
 
 class TestKnight(unittest.TestCase):
 
-    def setUp(self):
-        self.board = Board()  
-        for row in range(8):
-            for col in range(8):
-                self.board.set_piece(row, col, None)
 
     def test_str(self):
-        knight = Knight("WHITE", self.board)
+        board = Board(for_test=True)
+        knight = Knight("WHITE", board)
         self.assertEqual(
             str(knight),
             "♞",
         )
 
     def test_move_knight(self):
-        knight = Knight("WHITE", self.board)
-        self.board.set_piece(4, 4, knight)
+        board = Board(for_test=True)
+        knight = Knight("WHITE", board)
+        board.set_piece(4, 4, knight)
         possibles = knight.possible_positions_knight(4, 3)
         self.assertEqual(
             possibles,
@@ -29,8 +26,9 @@ class TestKnight(unittest.TestCase):
         )
 
     def test_move_knight_edge(self):
-        knight = Knight("WHITE", self.board)
-        self.board.set_piece(0, 0, knight)
+        board = Board(for_test=True)
+        knight = Knight("WHITE", board)
+        board.set_piece(0, 0, knight)
         possibles = knight.possible_positions_knight(0, 0)
         self.assertEqual(
             possibles,
@@ -38,9 +36,10 @@ class TestKnight(unittest.TestCase):
         )
 
     def test_move_knight_with_obstacle(self):
-        knight = Knight("WHITE", self.board)
-        self.board.set_piece(4, 4, knight)
-        self.board.set_piece(6, 5, Pawn("WHITE", self.board))
+        board = Board(for_test=True)
+        knight = Knight("WHITE", board)
+        board.set_piece(4, 4, knight)
+        board.set_piece(6, 5, Pawn("WHITE", board))
         possibles = knight.possible_positions_knight(4, 4)
         self.assertEqual(
             possibles,
@@ -48,9 +47,10 @@ class TestKnight(unittest.TestCase):
         )
 
     def test_move_knight_attack(self):
-        knight = Knight("WHITE", self.board)
-        self.board.set_piece(4, 4, knight)
-        self.board.set_piece(6, 5, Pawn("BLACK", self.board))
+        board = Board(for_test=True)
+        knight = Knight("WHITE", board)
+        board.set_piece(4, 4, knight)
+        board.set_piece(6, 5, Pawn("BLACK", board))
         possibles = knight.possible_positions_knight(4, 4)
         self.assertEqual(
             possibles,
@@ -59,9 +59,10 @@ class TestKnight(unittest.TestCase):
 
 
     def test_move_knight_edge_with_obstacle(self):
-        knight = Knight("WHITE", self.board)
-        self.board.set_piece(0, 0, knight)
-        self.board.set_piece(2, 1, Pawn("WHITE", self.board))
+        board = Board(for_test=True)
+        knight = Knight("WHITE", board)
+        board.set_piece(0, 0, knight)
+        board.set_piece(2, 1, Pawn("WHITE", board))
         possibles = knight.possible_positions_knight(0, 0)
         self.assertEqual(
             possibles,
@@ -69,9 +70,10 @@ class TestKnight(unittest.TestCase):
         )
 
     def test_move_knight_edge_attack(self):
-        knight = Knight("WHITE", self.board)
-        self.board.set_piece(0, 0, knight)
-        self.board.set_piece(2, 1, Pawn("BLACK", self.board))
+        board = Board(for_test=True)
+        knight = Knight("WHITE", board)
+        board.set_piece(0, 0, knight)
+        board.set_piece(2, 1, Pawn("BLACK", board))
         possibles = knight.possible_positions_knight(0, 0)
         self.assertEqual(
             possibles,
@@ -79,8 +81,9 @@ class TestKnight(unittest.TestCase):
         )
 
     def test_invalid_move(self):
-        self.board.set_piece(0, 0, Knight("WHITE", self.board))  
-        knight = self.board.get_piece(0, 0) 
+        board = Board(for_test=True)
+        board.set_piece(0, 0, Knight("WHITE", board))  
+        knight = board.get_piece(0, 0) 
         is_possible = knight.valid_positions(
             from_row=0,
             from_col=0,
