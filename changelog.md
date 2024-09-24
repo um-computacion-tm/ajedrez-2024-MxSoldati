@@ -1,3 +1,18 @@
+## 2024-09-24
+
+### Fixxed
+- Change all movements. Take it to piece.py, and make all generic moves, there. The specific moves, are made by each piece.
+- This way i'm able to have it more refactorized.
+- Change the place where was `def change_piece` (`board.py`), to `chess.py`. is a rule game and board have nothing to do with it.
+
+### Vision
+- Finish doing this with `king.py` and look up `pawn.py`.
+- Having the function `change_piece` don't make the change. Have to make another function called `promote_pawn`, where calling `change_piece`, and introducing to the code, make it work.
+
+- Learn how to make it work the conflicts of my branch `dev`.
+
+---
+
 ## 2024-09-20
 
 ### Fixed

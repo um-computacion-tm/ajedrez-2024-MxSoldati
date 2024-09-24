@@ -1,9 +1,14 @@
 from game.board import Board
 from game.exceptions import InvalidMove
 from game.exceptions import InvalidTurn, EmptyPosition, InvalidMove
+from game.pieces.pawn import Pawn
+from game.pieces.queen import Queen
+
 
 class Chess:
     def __init__(self):
+
+
         self.__board__ = Board()
         self.__turn__ = "WHITE"
 
@@ -29,7 +34,12 @@ class Chess:
         self.__board__.move(from_row, from_col, to_row, to_col)
         self.change_turn()
 
-    
+    def change_piece(self, row, col):
+
+        current_piece = self.__board__.get_piece(row, col)
+        if isinstance(current_piece, Pawn):
+            if (current_piece.__color__ == "WHITE" and row == 0) or (current_piece.__color__ == "BLACK" and row == 7):
+                self.__board__.set_piece(row, col, Queen(current_piece.__color__, self.__board__))
         
     @property
     def turn(self):

@@ -2,6 +2,8 @@ import unittest
 from game.board import Board
 from game.chess import Chess
 from game.exceptions import InvalidMove , EmptyPosition , InvalidTurn
+from game.pieces.pawn import Pawn
+from game.pieces.queen import Queen
 
 
 class TestChess(unittest.TestCase):
@@ -125,6 +127,56 @@ class TestChess(unittest.TestCase):
             )
         )
 
+    def test_promote_white(self):
+        # import ipdb; ipdb.set_trace()
+        # instanciamos al peon
+        board = Board(for_test=True)
+        chess = Chess()
+        pawn = Pawn(color='WHITE', board=board)
+
+        # buscamos mover al peon
+        chess.__board__.set_piece(1, 3, pawn)
+        chess.__board__.move(1, 3, 0, 3)
+
+        # AHORA CAMBIAR PEON A REINA
+        chess.change_piece(0, 3)
+
+        self.assertIsInstance(
+            chess.__board__.get_piece(0, 3),
+            Queen,
+        )
+
+
+    def test_pawn_promotion_black(self):
+        board = Board(for_test=True)
+        chess = Chess()
+        chess.__board__ = board
+        pawn = Pawn(color='BLACK', board=board)
+
+        # buscamos mover al peon
+        chess.__board__.set_piece(6, 2, pawn)
+        chess.__board__.move(6, 2, 7, 2)
+
+        # AHORA CAMBIAR PEON A REINA
+        chess.change_piece(7, 2 )
+        self.assertIsInstance(
+            chess.__board__.get_piece(7, 2),
+            Queen,
+        )
+
+    def test_no_promotion(self):
+        board = Board(for_test=True)
+        chess = Chess()
+        chess.__board__ = board
+        pawn = Pawn(color='BLACK', board=board)
+        chess.__board__.set_piece(2, 0, pawn)
+        chess.__board__.move(2, 0, 3, 0)
+        chess.change_piece(3, 0)
+        
+        self.assertIsInstance(
+            chess.__board__.get_piece(3, 0),
+            Pawn,
+        )
 
 
 if __name__ == '__main__':
