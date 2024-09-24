@@ -1,5 +1,4 @@
-class PieceMovements:
-    pass
+
 
 #     # Ahora para refactorizar, lo quiero hcaer como lo he hecho en los mov verticales de pawn
 

@@ -1,6 +1,6 @@
 import unittest
 from game.pieces import Rook , Pawn , King , Queen , Knight
-from game.movements import PieceMovements
+
 from game.exceptions import OutOfBoard
 from game.board import Board
 
