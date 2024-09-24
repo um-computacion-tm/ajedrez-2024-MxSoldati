@@ -5,15 +5,10 @@ from game.pieces.pawn import Pawn
 
 class TestKing(unittest.TestCase):
 
-    def setUp(self):
-        self.board = Board()
-        for row in range(8):
-            for col in range(8):
-                self.board.set_piece(row, col, None)
-
     def test_str(self):
+        board = Board(for_test=True)
         board = Board()
-        king = King("WHITE", self.board)
+        king = King("WHITE", board)
         self.assertEqual(
             str(king),
             "♚",
@@ -22,8 +17,9 @@ class TestKing(unittest.TestCase):
     # verticales -----------------------------------------------------
 
     def test_move_vertically_up(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
         possibles = king.possible_movement_vertical_up(4, 4)
         self.assertEqual(
             possibles,
@@ -31,9 +27,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_vertically_up_with_obstacle(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(5, 4, Pawn("WHITE", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(5, 4, Pawn("WHITE", board))
         possibles = king.possible_movement_vertical_up(4, 4)
         self.assertEqual(
             possibles,
@@ -41,9 +38,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_vertically_up_attack(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 1, king)
-        self.board.set_piece(5, 1, Pawn("BLACK", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 1, king)
+        board.set_piece(5, 1, Pawn("BLACK", board))
         possibles = king.possible_movement_vertical_up(4, 1)
         self.assertEqual(
             possibles,
@@ -51,8 +49,9 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_vertically_down(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
         possibles = king.possible_movement_vertical_down(4, 4)
         self.assertEqual(
             possibles,
@@ -60,9 +59,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_vertically_down_with_obstacle(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(3, 4, Pawn("WHITE", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(3, 4, Pawn("WHITE", board))
         possibles = king.possible_movement_vertical_down(4, 4)
         self.assertEqual(
             possibles,
@@ -70,9 +70,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_vertically_down_attack(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(3, 4, Pawn("BLACK", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(3, 4, Pawn("BLACK", board))
         possibles = king.possible_movement_vertical_down(4, 4)
         self.assertEqual(
             possibles,
@@ -82,8 +83,9 @@ class TestKing(unittest.TestCase):
     # Horizontales -----------------------------------------------------
     
     def test_move_horizontally_left(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
         possibles = king.possible_movement_horizontal_left(4, 4)
         self.assertEqual(
             possibles,
@@ -91,9 +93,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_horizontally_left_with_obstacle(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(4, 3, Pawn("WHITE", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(4, 3, Pawn("WHITE", board))
         possibles = king.possible_movement_horizontal_left(4, 4)
         self.assertEqual(
             possibles,
@@ -101,9 +104,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_horizontally_left_attack(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(4, 3, Pawn("BLACK", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(4, 3, Pawn("BLACK", board))
         possibles = king.possible_movement_horizontal_left(4, 4)
         self.assertEqual(
             possibles,
@@ -111,8 +115,9 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_horizontally_right(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
         possibles = king.possible_movement_horizontal_right(4, 4)
         self.assertEqual(
             possibles,
@@ -120,9 +125,10 @@ class TestKing(unittest.TestCase):
         )
     
     def test_move_horizontally_right_with_obstacle(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(4, 5, Pawn("WHITE", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(4, 5, Pawn("WHITE", board))
         possibles = king.possible_movement_horizontal_right(4, 4)
         self.assertEqual(
             possibles,
@@ -130,9 +136,10 @@ class TestKing(unittest.TestCase):
         )
     
     def test_move_horizontally_right_attack(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(4, 5, Pawn("BLACK", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(4, 5, Pawn("BLACK", board))
         possibles = king.possible_movement_horizontal_right(4, 4)
         self.assertEqual(
             possibles,
@@ -143,8 +150,9 @@ class TestKing(unittest.TestCase):
     # Diagonales para abajo  ----------------------------------------------
 
     def test_move_diagonally_down_left(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
         possibles = king.possible_movement_diagonal_down_left(4, 4)
         self.assertEqual(
             possibles,
@@ -152,9 +160,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_diagonally_down_left_with_obstacle(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(3, 3, Pawn("WHITE", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(3, 3, Pawn("WHITE", board))
         possibles = king.possible_movement_diagonal_down_left(4, 4)
         self.assertEqual(
             possibles,
@@ -162,9 +171,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_diagonally_down_left_attack(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(3, 3, Pawn("BLACK", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(3, 3, Pawn("BLACK", board))
         possibles = king.possible_movement_diagonal_down_left(4, 4)
         self.assertEqual(
             possibles,
@@ -172,8 +182,9 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_diagonally_down_right(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(1, 1, king)
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(1, 1, king)
         possibles = king.possible_movement_diagonal_down_right(1, 1)
         self.assertEqual(
             possibles,
@@ -181,19 +192,21 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_diagonally_down_right_with_obstacle(self):
-         king = King("WHITE", self.board)
-         self.board.set_piece(4, 4, king)
-         self.board.set_piece(3, 5, Pawn("WHITE", self.board))
-         possibles = king.possible_movement_diagonal_down_right(4, 4)
-         self.assertEqual(
-             possibles,
-             []
-         )
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(3, 5, Pawn("WHITE", board))
+        possibles = king.possible_movement_diagonal_down_right(4, 4)
+        self.assertEqual(
+            possibles,
+            []
+        )
 
     def test_move_diagonally_down_right_attack(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(3, 5, Pawn("BLACK", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(3, 5, Pawn("BLACK", board))
         possibles = king.possible_movement_diagonal_down_right(4, 4)
         self.assertEqual(
             possibles,
@@ -203,8 +216,9 @@ class TestKing(unittest.TestCase):
     # Diagonales para arriba  ----------------------------------------------
 
     def test_move_diagonally_up_left(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
         possibles = king.possible_movement_diagonal_up_left(4, 4)
         self.assertEqual(
             possibles,
@@ -212,9 +226,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_diagonally_up_left_with_obstacle(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(5, 3, Pawn("WHITE", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(5, 3, Pawn("WHITE", board))
         possibles = king.possible_movement_diagonal_up_left(4, 4)
         self.assertEqual(
             possibles,
@@ -222,9 +237,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_diagonally_up_left_attack(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(5, 3, Pawn("BLACK", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(5, 3, Pawn("BLACK", board))
         possibles = king.possible_movement_diagonal_up_left(4, 4)
         self.assertEqual(
             possibles,
@@ -232,8 +248,9 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_diagonally_up_right(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
         possibles = king.possible_movement_diagonal_up_right(4, 4)
         self.assertEqual(
             possibles,
@@ -241,9 +258,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_diagonally_up_right_with_obstacle(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(5, 5, Pawn("WHITE", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(5, 5, Pawn("WHITE", board))
         possibles = king.possible_movement_diagonal_up_right(4, 4)
         self.assertEqual(
             possibles,
@@ -251,9 +269,10 @@ class TestKing(unittest.TestCase):
         )
 
     def test_move_diagonally_up_right_attack(self):
-        king = King("WHITE", self.board)
-        self.board.set_piece(4, 4, king)
-        self.board.set_piece(5, 5, Pawn("BLACK", self.board))
+        board = Board(for_test=True)
+        king = King("WHITE", board)
+        board.set_piece(4, 4, king)
+        board.set_piece(5, 5, Pawn("BLACK", board))
         possibles = king.possible_movement_diagonal_up_right(4, 4)
         self.assertEqual(
             possibles,
@@ -261,8 +280,9 @@ class TestKing(unittest.TestCase):
         )
 
     def test_invalid_move_diagonally(self):
-        self.board.set_piece(0, 0, King("WHITE", self.board))  # Colocar una torre en la posición (0, 0)
-        king = self.board.get_piece(0, 0)  # Obtener la torre en la posición inicial
+        board = Board(for_test=True)
+        board.set_piece(0, 0, King("WHITE", board))  # Colocar una torre en la posición (0, 0)
+        king = board.get_piece(0, 0)  # Obtener la torre en la posición inicial
         is_possible = king.valid_positions(
             from_row=0,
             from_col=0,

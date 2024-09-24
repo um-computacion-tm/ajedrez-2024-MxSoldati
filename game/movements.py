@@ -1,4 +1,11 @@
 class PiceMovements:
+
+
+    # Ahora para refactorizar, lo quiero hcaer como lo he hecho en los mov verticales de pawn
+
+    def movement_vertical(self, row, col, movement_func):
+        ## ....
+        return movement_func(row, col)
     
     def movement_vertical_up(self, row, col):
         possibles = []
@@ -26,6 +33,10 @@ class PiceMovements:
         # print(f"Possible moves: {possibles}")
         return possibles
     
+    def movement_horizontal(self, row, col, movement_func):
+        ## ....
+        return movement_func(row, col)
+
     def movement_horizontal_right(self, row, col):
         possibles = []
         for next_col in range(col + 1, 8):
@@ -111,3 +122,6 @@ class PiceMovements:
             else:
                 break
         return possibles
+    
+
+#preguntar al profe.....

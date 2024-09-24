@@ -1,4 +1,30 @@
+## 2024-09-20
 
+### Fixed
+- All the tests from pieces have their own board. Take that and keep it all together (insted of a `setUp`, with their new board, use `Board(for_test=True)`)
+
+---
+
+## 2024-09-19
+
+### Added
+- Finished piece moves.
+
+### Fixed
+- Refactoring pawn movements, and making a change of piece by a queen.
+
+---
+
+## 2024-09-09
+
+### Added
+- `test_knight`
+
+### Vision
+- Miss their moves, and I have to see were I make that, because there is an F in my test_coverage.
+- Tomorrow, see what's going on with my `cli.py` ; see `pawn.py` and `knight.py` moves.
+
+---
 
 ## 2024-09-08
 
