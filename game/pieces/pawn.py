@@ -1,6 +1,4 @@
 from .piece import Piece
-from ..movements import PiceMovements
-from .queen import Queen
 
 class Pawn(Piece):
     white_str = "♟"
@@ -8,44 +6,26 @@ class Pawn(Piece):
     __start_row__ = None
 
     def valid_positions(self, from_row, from_col, to_row, to_col):
-        if self.__color__ == "WHITE":
-            possible_positions = (
-                self.possible_movement_vertical_up_and_down(from_row, from_col) + 
-                self.possible_attack_diagonal(from_row, from_col) 
-            )
-        else:
-            possible_positions = (
-                self.possible_movement_vertical_up_and_down(from_row, from_col) +
-                self.possible_attack_diagonal(from_row, from_col) 
-            )
+        possible_positions = (
+            self.possible_movement_vertical(from_row, from_col) + 
+            self.possible_attack_diagonal(from_row, from_col)
+        )
         return (to_row, to_col) in possible_positions
-        
-    def possible_movement_vertical_up_and_down(self, row, col):
 
-        if self.__color__ == "WHITE":
-            self.__start_row__ = 6
-            return self.possible_movement_vertical(row, col, PiceMovements.movement_vertical_down)
-        else:
-            self.__start_row__ = 1
-            return self.possible_movement_vertical(row, col, PiceMovements.movement_vertical_up)
-    
-
-    def possible_movement_vertical(self, row, col, movement_func):
-
-        direction = -1 if movement_func == PiceMovements.movement_vertical_down else 1
-        if row == self.__start_row__ and self.__board__.get_piece(row + 2 * direction, col) is None and self.__board__.get_piece(row + 1 * direction, col) is None:
-            return [(row + 1 * direction, col), (row + 2 * direction, col)]
+    def possible_movement_vertical(self, row, col):
+        direction = -1 if self.__color__ == "WHITE" else 1
+        start_row = 6 if self.__color__ == "WHITE" else 1
+        possibles = []
+        if row == start_row and self.__board__.get_piece(row + 2 * direction, col) is None and self.__board__.get_piece(row + 1 * direction, col) is None:
+            possibles.extend([(row + 1 * direction, col), (row + 2 * direction, col)])
         elif self.__board__.get_piece(row + 1 * direction, col) is None:
-            return [(row + 1 * direction, col)]
-        return []
+            possibles.append((row + 1 * direction, col))
+        return possibles
 
     def possible_attack_diagonal(self, row, col):
-        if self.__color__ == "WHITE":
-            return self.possible_attack_diagonal_direction(row, col, -1, -1) + \
-                   self.possible_attack_diagonal_direction(row, col, -1, 1)
-        else:
-            return self.possible_attack_diagonal_direction(row, col, 1, -1) + \
-                   self.possible_attack_diagonal_direction(row, col, 1, 1)
+        direction = -1 if self.__color__ == "WHITE" else 1
+        return self.possible_attack_diagonal_direction(row, col, direction, -1) + \
+               self.possible_attack_diagonal_direction(row, col, direction, 1)
 
     def possible_attack_diagonal_direction(self, row, col, row_offset, col_offset):
         target_row = row + row_offset
@@ -55,7 +35,3 @@ class Pawn(Piece):
             if piece is not None and piece.__color__ != self.__color__:
                 return [(target_row, target_col)]
         return []
-    
-    # Ver como puedo ponerlo en mi codigo...
-    def promote_pawn(self, row, col):
-        self.__board__.change_piece(row, col, Queen(self.__color__, self.__board))

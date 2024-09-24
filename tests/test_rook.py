@@ -28,7 +28,7 @@ class TestRook(unittest.TestCase):
         board = Board(for_test=True)
         rook = Rook("WHITE", board)
         board.set_piece(4, 1, rook)
-        possibles = rook.possible_movement_vertical_down(4, 1)
+        possibles = rook.movement_vertical_down(4, 1)
         self.assertEqual(
             possibles,
             [(3, 1), (2, 1), (1, 1), (0, 1)]
@@ -39,7 +39,7 @@ class TestRook(unittest.TestCase):
         rook = Rook("WHITE", board)
         board.set_piece(4, 1, rook)
         board.set_piece(2, 1, Pawn("WHITE", board))
-        possibles = rook.possible_movement_vertical_down(4, 1)
+        possibles = rook.movement_vertical_down(4, 1)
         self.assertEqual(
             possibles,
             [(3, 1)]
@@ -50,7 +50,7 @@ class TestRook(unittest.TestCase):
         rook = Rook("WHITE", board)
         board.set_piece(4, 1, rook)
         board.set_piece(2, 1, Pawn("BLACK", board))
-        possibles = rook.possible_movement_vertical_down(4, 1)
+        possibles = rook.movement_vertical_down(4, 1)
         self.assertEqual(
             possibles,
             [(3, 1), (2, 1)]
@@ -60,7 +60,7 @@ class TestRook(unittest.TestCase):
         board = Board(for_test=True)
         rook = Rook("WHITE", board)
         board.set_piece(4, 1, rook)
-        possibles = rook.possible_movement_vertical_up(4, 1)
+        possibles = rook.movement_vertical_up(4, 1)
         self.assertEqual(
             possibles,
             [(5, 1), (6, 1), (7, 1)]
@@ -71,7 +71,7 @@ class TestRook(unittest.TestCase):
         rook = Rook("WHITE", board)
         board.set_piece(4, 1, rook)
         board.set_piece(6, 1, Pawn("WHITE", board))
-        possibles = rook.possible_movement_vertical_up(4, 1)
+        possibles = rook.movement_vertical_up(4, 1)
         self.assertEqual(
             possibles,
             [(5, 1)]
@@ -82,7 +82,7 @@ class TestRook(unittest.TestCase):
         rook = Rook("WHITE", board)
         board.set_piece(4, 1, rook)
         board.set_piece(6, 1, Pawn("BLACK", board))
-        possibles = rook.possible_movement_vertical_up(4, 1)
+        possibles = rook.movement_vertical_up(4, 1)
         self.assertEqual(
             possibles,
             [(5, 1), (6, 1)]
@@ -92,7 +92,7 @@ class TestRook(unittest.TestCase):
         board = Board(for_test=True)
         rook = Rook("WHITE", board)
         board.set_piece(4, 1, rook)
-        possibles = rook.possible_movement_horizontal_right(4, 1)
+        possibles = rook.movement_horizontal_right(4, 1)
         self.assertEqual(
             possibles,
             [(4, 2), (4, 3), (4, 4), (4, 5), (4, 6), (4, 7)]
@@ -103,7 +103,7 @@ class TestRook(unittest.TestCase):
         rook = Rook("WHITE", board)
         board.set_piece(4, 1, rook)
         board.set_piece(4, 3, Pawn("WHITE", board))
-        possibles = rook.possible_movement_horizontal_right(4, 1)
+        possibles = rook.movement_horizontal_right(4, 1)
         self.assertEqual(
             possibles,
             [(4, 2)]
@@ -114,7 +114,7 @@ class TestRook(unittest.TestCase):
         rook = Rook("WHITE", board)
         board.set_piece(4, 1, rook)
         board.set_piece(4, 3, Pawn("BLACK", board))
-        possibles = rook.possible_movement_horizontal_right(4, 1)
+        possibles = rook.movement_horizontal_right(4, 1)
         self.assertEqual(
             possibles,
             [(4, 2), (4, 3)]
@@ -124,7 +124,7 @@ class TestRook(unittest.TestCase):
         board = Board(for_test=True)
         rook = Rook("WHITE", board)
         board.set_piece(4, 6, rook)
-        possibles = rook.possible_movement_horizontal_left(4, 6)
+        possibles = rook.movement_horizontal_left(4, 6)
         self.assertEqual(
             possibles,
             [(4, 5), (4, 4), (4, 3), (4, 2), (4, 1), (4, 0)]
@@ -135,7 +135,7 @@ class TestRook(unittest.TestCase):
         rook = Rook("WHITE", board)
         board.set_piece(4, 6, rook)
         board.set_piece(4, 4, Pawn("WHITE", board))
-        possibles = rook.possible_movement_horizontal_left(4, 6)
+        possibles = rook.movement_horizontal_left(4, 6)
         self.assertEqual(
             possibles,
             [(4, 5)]
@@ -146,7 +146,7 @@ class TestRook(unittest.TestCase):
         rook = Rook("WHITE", board)
         board.set_piece(4, 6, rook)
         board.set_piece(4, 4, Pawn("BLACK", board))
-        possibles = rook.possible_movement_horizontal_left(4, 6)
+        possibles = rook.movement_horizontal_left(4, 6)
         self.assertEqual(
             possibles,
             [(4, 5), (4, 4)]

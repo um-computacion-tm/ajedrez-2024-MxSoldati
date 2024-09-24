@@ -20,7 +20,7 @@ class TestKing(unittest.TestCase):
         board = Board(for_test=True)
         king = King("WHITE", board)
         board.set_piece(4, 4, king)
-        possibles = king.possible_movement_vertical_up(4, 4)
+        possibles = king.movement_vertical_up(4, 4)
         self.assertEqual(
             possibles,
             [(5, 4)]
@@ -31,7 +31,7 @@ class TestKing(unittest.TestCase):
         king = King("WHITE", board)
         board.set_piece(4, 4, king)
         board.set_piece(5, 4, Pawn("WHITE", board))
-        possibles = king.possible_movement_vertical_up(4, 4)
+        possibles = king.movement_vertical_up(4, 4)
         self.assertEqual(
             possibles,
             []
@@ -42,7 +42,7 @@ class TestKing(unittest.TestCase):
         king = King("WHITE", board)
         board.set_piece(4, 1, king)
         board.set_piece(5, 1, Pawn("BLACK", board))
-        possibles = king.possible_movement_vertical_up(4, 1)
+        possibles = king.movement_vertical_up(4, 1)
         self.assertEqual(
             possibles,
             [(5, 1)]
@@ -52,7 +52,7 @@ class TestKing(unittest.TestCase):
         board = Board(for_test=True)
         king = King("WHITE", board)
         board.set_piece(4, 4, king)
-        possibles = king.possible_movement_vertical_down(4, 4)
+        possibles = king.movement_vertical_down(4, 4)
         self.assertEqual(
             possibles,
             [(3, 4)]
@@ -63,7 +63,7 @@ class TestKing(unittest.TestCase):
         king = King("WHITE", board)
         board.set_piece(4, 4, king)
         board.set_piece(3, 4, Pawn("WHITE", board))
-        possibles = king.possible_movement_vertical_down(4, 4)
+        possibles = king.movement_vertical_down(4, 4)
         self.assertEqual(
             possibles,
             []
@@ -74,7 +74,7 @@ class TestKing(unittest.TestCase):
         king = King("WHITE", board)
         board.set_piece(4, 4, king)
         board.set_piece(3, 4, Pawn("BLACK", board))
-        possibles = king.possible_movement_vertical_down(4, 4)
+        possibles = king.movement_vertical_down(4, 4)
         self.assertEqual(
             possibles,
             [(3, 4)]
@@ -86,7 +86,7 @@ class TestKing(unittest.TestCase):
         board = Board(for_test=True)
         king = King("WHITE", board)
         board.set_piece(4, 4, king)
-        possibles = king.possible_movement_horizontal_left(4, 4)
+        possibles = king.movement_horizontal_left(4, 4)
         self.assertEqual(
             possibles,
             [(4, 3)]
@@ -97,7 +97,7 @@ class TestKing(unittest.TestCase):
         king = King("WHITE", board)
         board.set_piece(4, 4, king)
         board.set_piece(4, 3, Pawn("WHITE", board))
-        possibles = king.possible_movement_horizontal_left(4, 4)
+        possibles = king.movement_horizontal_left(4, 4)
         self.assertEqual(
             possibles,
             []
@@ -108,7 +108,7 @@ class TestKing(unittest.TestCase):
         king = King("WHITE", board)
         board.set_piece(4, 4, king)
         board.set_piece(4, 3, Pawn("BLACK", board))
-        possibles = king.possible_movement_horizontal_left(4, 4)
+        possibles = king.movement_horizontal_left(4, 4)
         self.assertEqual(
             possibles,
             [(4, 3)]
@@ -118,7 +118,7 @@ class TestKing(unittest.TestCase):
         board = Board(for_test=True)
         king = King("WHITE", board)
         board.set_piece(4, 4, king)
-        possibles = king.possible_movement_horizontal_right(4, 4)
+        possibles = king.movement_horizontal_right(4, 4)
         self.assertEqual(
             possibles,
             [(4, 5)]
@@ -129,7 +129,7 @@ class TestKing(unittest.TestCase):
         king = King("WHITE", board)
         board.set_piece(4, 4, king)
         board.set_piece(4, 5, Pawn("WHITE", board))
-        possibles = king.possible_movement_horizontal_right(4, 4)
+        possibles = king.movement_horizontal_right(4, 4)
         self.assertEqual(
             possibles,
             []
@@ -140,7 +140,7 @@ class TestKing(unittest.TestCase):
         king = King("WHITE", board)
         board.set_piece(4, 4, king)
         board.set_piece(4, 5, Pawn("BLACK", board))
-        possibles = king.possible_movement_horizontal_right(4, 4)
+        possibles = king.movement_horizontal_right(4, 4)
         self.assertEqual(
             possibles,
             [(4, 5)]

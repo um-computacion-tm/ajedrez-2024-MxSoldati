@@ -17,7 +17,7 @@ class TestBishop(unittest.TestCase):
         board = Board(for_test=True)
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
-        possibles = bishop.possible_positions_diagonal_up_left(4, 4)
+        possibles = bishop.movement_diagonal_up_left(4, 4)
         self.assertEqual(
             possibles,
             [(5, 3), (6, 2), (7, 1)]
@@ -28,7 +28,7 @@ class TestBishop(unittest.TestCase):
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
         board.set_piece(6, 2, Pawn("WHITE", board))
-        possibles = bishop.possible_positions_diagonal_up_left(4, 4)
+        possibles = bishop.movement_diagonal_up_left(4, 4)
         self.assertEqual(
             possibles,
             [(5, 3)]
@@ -39,7 +39,7 @@ class TestBishop(unittest.TestCase):
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
         board.set_piece(6, 2, Pawn("BLACK", board))
-        possibles = bishop.possible_positions_diagonal_up_left(4, 4)
+        possibles = bishop.movement_diagonal_up_left(4, 4)
         self.assertEqual(
             possibles,
             [(5, 3), (6, 2)]
@@ -49,7 +49,7 @@ class TestBishop(unittest.TestCase):
         board = Board(for_test=True)
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
-        possibles = bishop.possible_positions_diagonal_up_right(4, 4)
+        possibles = bishop.movement_diagonal_up_right(4, 4)
         self.assertEqual(
             possibles,
             [(5, 5), (6, 6), (7, 7)]
@@ -60,7 +60,7 @@ class TestBishop(unittest.TestCase):
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
         board.set_piece(6, 6, Pawn("WHITE", board))
-        possibles = bishop.possible_positions_diagonal_up_right(4, 4)
+        possibles = bishop.movement_diagonal_up_right(4, 4)
         self.assertEqual(
             possibles,
             [(5, 5)]
@@ -71,7 +71,7 @@ class TestBishop(unittest.TestCase):
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
         board.set_piece(6, 6, Pawn("BLACK", board))
-        possibles = bishop.possible_positions_diagonal_up_right(4, 4)
+        possibles = bishop.movement_diagonal_up_right(4, 4)
         self.assertEqual(
             possibles,
             [(5, 5), (6, 6)]
@@ -81,7 +81,7 @@ class TestBishop(unittest.TestCase):
         board = Board(for_test=True)
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
-        possibles = bishop.possible_positions_diagonal_down_right(4, 4)
+        possibles = bishop.movement_diagonal_down_right(4, 4)
         self.assertEqual(
             possibles,
             [(3, 5), (2, 6), (1, 7)]
@@ -92,7 +92,7 @@ class TestBishop(unittest.TestCase):
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
         board.set_piece(2, 6, Pawn("WHITE", board))
-        possibles = bishop.possible_positions_diagonal_down_right(4, 4)
+        possibles = bishop.movement_diagonal_down_right(4, 4)
         self.assertEqual(
             possibles,
             [(3, 5)]
@@ -103,7 +103,7 @@ class TestBishop(unittest.TestCase):
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
         board.set_piece(2, 6, Pawn("BLACK", board))
-        possibles = bishop.possible_positions_diagonal_down_right(4, 4)
+        possibles = bishop.movement_diagonal_down_right(4, 4)
         self.assertEqual(
             possibles,
             [(3, 5), (2, 6)]
@@ -113,7 +113,7 @@ class TestBishop(unittest.TestCase):
         board = Board(for_test=True)
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
-        possibles = bishop.possible_positions_diagonal_down_left(4, 4)
+        possibles = bishop.movement_diagonal_down_left(4, 4)
         self.assertEqual(
             possibles,
             [(3, 3), (2, 2), (1, 1), (0, 0)]
@@ -124,7 +124,7 @@ class TestBishop(unittest.TestCase):
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
         board.set_piece(2, 2, Pawn("WHITE", board))
-        possibles = bishop.possible_positions_diagonal_down_left(4, 4)
+        possibles = bishop.movement_diagonal_down_left(4, 4)
         self.assertEqual(
             possibles,
             [(3, 3)]
@@ -135,7 +135,7 @@ class TestBishop(unittest.TestCase):
         bishop = Bishop("WHITE", board)
         board.set_piece(4, 4, bishop)
         board.set_piece(2, 2, Pawn("BLACK", board))
-        possibles = bishop.possible_positions_diagonal_down_left(4, 4)
+        possibles = bishop.movement_diagonal_down_left(4, 4)
         self.assertEqual(
             possibles,
             [(3, 3), (2, 2)]
