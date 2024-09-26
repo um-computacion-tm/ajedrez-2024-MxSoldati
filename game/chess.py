@@ -40,6 +40,26 @@ class Chess:
         if isinstance(current_piece, Pawn):
             if (current_piece.__color__ == "WHITE" and row == 0) or (current_piece.__color__ == "BLACK" and row == 7):
                 self.__board__.set_piece(row, col, Queen(current_piece.__color__, self.__board__))
+
+    def determine_winner(self):
+        white_pieces = 0
+        black_pieces = 0
+        # En esta funcion solamente queremos tener la info si quedan o no, piezas.
+        #asi podemos determinar el ganador.
+        for row in range(8):
+            for col in range(8):
+                piece = self.__board__.get_piece(row, col)
+                if piece is not None:
+                    if piece.__color__ == "WHITE":
+                        white_pieces += 1
+                    elif piece.__color__ == "BLACK":
+                        black_pieces += 1
+        if white_pieces == 0:
+            return "Black wins"
+        elif black_pieces == 0:
+            return "White wins"
+        else:
+            return "No winner yet"
         
     @property
     def turn(self):

@@ -179,5 +179,32 @@ class TestChess(unittest.TestCase):
         )
 
 
+    def test_black_wins(self):
+        board = Board(for_test=True)
+        chess = Chess()
+        chess.__board__ = board
+        board.set_piece(0, 0, Pawn("BLACK", board))
+        result = chess.determine_winner()
+        self.assertEqual(result, "Black wins")
+
+    def test_white_wins(self):
+        board = Board(for_test=True)
+        chess = Chess()
+        chess.__board__ = board
+        board.set_piece(0, 0, Pawn("WHITE", board))
+        result = chess.determine_winner()
+        self.assertEqual(result, "White wins")
+
+    def test_no_winner_yet(self):
+        board = Board(for_test=True)
+        chess = Chess()
+        chess.__board__ = board
+        board.set_piece(0, 0, Pawn("WHITE", board))
+        board.set_piece(1, 1, Pawn("BLACK", board))
+        result = chess.determine_winner()
+        self.assertEqual(result, "No winner yet")
+
+
+
 if __name__ == '__main__':
     unittest.main()
