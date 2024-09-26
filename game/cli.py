@@ -19,10 +19,18 @@ def play(chess):
         
         # Mover la pieza
         chess.move (from_row, from_col, to_row, to_col)
+
+        # Ver si hay ganador
+        winner = chess.determine_winner()
+        if winner != "No winner yet":
+            print(winner)
+            chess.is_playing = False
+
     except InvalidMove as e:
         print("Invalid move:", e)
     except Exception as e:
         print("Error:", e)
+    
 
 if __name__ == '__main__':
     main()
