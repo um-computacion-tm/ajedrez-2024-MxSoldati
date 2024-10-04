@@ -12,9 +12,6 @@ class Piece:
         else:
             return self.black_str
 
-
-
-
     def movement(self, row, col, row_direction, col_direction):
         possibles = []
         to_row = row + row_direction
@@ -57,8 +54,8 @@ class Piece:
             next_row, next_col = row + i * row_direction, col + i * col_direction
             if 0 <= next_row < 8 and 0 <= next_col < 8:
                 other_piece = self.__board__.get_piece(next_row, next_col)
-                if other_piece is not None:
-                    if other_piece.__color__ != self.__color__:
+                if other_piece != None:
+                    if other_piece.__color__ is not self.__color__:
                         possibles.append((next_row, next_col))
                     break
                 possibles.append((next_row, next_col))
