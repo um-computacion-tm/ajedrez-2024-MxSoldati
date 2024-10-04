@@ -1,3 +1,13 @@
+## 2024-10-04
+
+### Added
+- `draw` funtion, to make it draw
+
+- Finished Chess
+- Only thing that miss, `check` and `check mate`.
+
+---
+
 ## 2024-09-24
 
 ### Fixxed

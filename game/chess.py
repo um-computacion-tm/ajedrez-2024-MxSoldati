@@ -1,6 +1,6 @@
 from game.board import Board
 from game.exceptions import InvalidMove
-from game.exceptions import InvalidTurn, EmptyPosition, InvalidMove
+from game.exceptions import InvalidTurn, EmptyPosition, InvalidMove , NoTablas
 from game.pieces.pawn import Pawn
 from game.pieces.queen import Queen
 
@@ -13,7 +13,8 @@ class Chess:
         self.__turn__ = "WHITE"
 
     def is_playing(self):
-        return True
+        return self.is_playing
+    
     
     def validate_coords(self, row, col):
         if type(row) is int and type(col) is int:
@@ -60,6 +61,21 @@ class Chess:
             return "White wins"
         else:
             return "No winner yet"
+        
+
+    def tablas(self, from_row):
+        if from_row == 'stop':
+            self.change_turn() #Preguntarle al otro jugador si acepta tablas
+            response = input(f"{self.__turn__}, ¿aceptas tablas? (s/n): ")
+            if response.lower() == 's':
+                print("El juego ha terminado en empate.")
+                print('El jugadora ganador es: ', self.__turn__)
+                return True # Terminar el juego
+            elif response.lower() == 'n':
+                self.change_turn()  # Volver al turno original
+                raise NoTablas()
+        else:
+            raise InvalidMove()
         
     @property
     def turn(self):

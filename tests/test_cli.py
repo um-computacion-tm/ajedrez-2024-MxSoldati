@@ -60,6 +60,17 @@ class TestCli(unittest.TestCase):
         self.assertEqual(mock_chess_move.call_count, 0)
 
 
+    @patch('builtins.input', side_effect=['stop', 's'])
+    def test_play_draw(self, mock_input):
+        chess = Chess()
+        play(chess)
+        self.assertFalse(chess.is_playing)
+
+    @patch('builtins.input', side_effect=['1', '1', '2', '2', 'stop', 'n'])
+    def test_play_reject_draw(self, mock_input):
+        chess = Chess()
+        play(chess)
+        self.assertTrue(chess.is_playing)
    
 
 if __name__ == '__main__':
