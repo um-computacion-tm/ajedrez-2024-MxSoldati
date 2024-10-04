@@ -1,6 +1,6 @@
 from game.board import Board
 from game.exceptions import InvalidMove
-from game.exceptions import InvalidTurn, EmptyPosition, InvalidMove
+from game.exceptions import InvalidTurn, EmptyPosition, InvalidMove , NoTablas
 from game.pieces.pawn import Pawn
 from game.pieces.queen import Queen
 
@@ -13,7 +13,8 @@ class Chess:
         self.__turn__ = "WHITE"
 
     def is_playing(self):
-        return True
+        return self.is_playing
+    
     
     def validate_coords(self, row, col):
         if type(row) is int and type(col) is int:
@@ -40,6 +41,41 @@ class Chess:
         if isinstance(current_piece, Pawn):
             if (current_piece.__color__ == "WHITE" and row == 0) or (current_piece.__color__ == "BLACK" and row == 7):
                 self.__board__.set_piece(row, col, Queen(current_piece.__color__, self.__board__))
+
+    def determine_winner(self):
+        white_pieces = 0
+        black_pieces = 0
+        # En esta funcion solamente queremos tener la info si quedan o no, piezas.
+        #asi podemos determinar el ganador.
+        for row in range(8):
+            for col in range(8):
+                piece = self.__board__.get_piece(row, col)
+                if piece is not None:
+                    if piece.__color__ == "WHITE":
+                        white_pieces += 1
+                    elif piece.__color__ == "BLACK":
+                        black_pieces += 1
+        if white_pieces == 0:
+            return "Black wins"
+        elif black_pieces == 0:
+            return "White wins"
+        else:
+            return "No winner yet"
+        
+
+    def tablas(self, from_row):
+        if from_row == 'stop':
+            self.change_turn() #Preguntarle al otro jugador si acepta tablas
+            response = input(f"{self.__turn__}, ¿aceptas tablas? (s/n): ")
+            if response.lower() == 's':
+                print("El juego ha terminado en empate.")
+                print('El jugadora ganador es: ', self.__turn__)
+                return True # Terminar el juego
+            elif response.lower() == 'n':
+                self.change_turn()  # Volver al turno original
+                raise NoTablas()
+        else:
+            raise InvalidMove()
         
     @property
     def turn(self):

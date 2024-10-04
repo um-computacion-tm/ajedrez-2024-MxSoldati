@@ -1,10 +1,10 @@
 import unittest
 from game.board import Board
 from game.chess import Chess
-from game.exceptions import InvalidMove , EmptyPosition , InvalidTurn
+from game.exceptions import InvalidMove , EmptyPosition , InvalidTurn , NoTablas
 from game.pieces.pawn import Pawn
 from game.pieces.queen import Queen
-
+from unittest.mock import patch
 
 class TestChess(unittest.TestCase):
 
@@ -177,6 +177,47 @@ class TestChess(unittest.TestCase):
             chess.__board__.get_piece(3, 0),
             Pawn,
         )
+
+
+    def test_black_wins(self):
+        board = Board(for_test=True)
+        chess = Chess()
+        chess.__board__ = board
+        board.set_piece(0, 0, Pawn("BLACK", board))
+        result = chess.determine_winner()
+        self.assertEqual(result, "Black wins")
+
+    def test_white_wins(self):
+        board = Board(for_test=True)
+        chess = Chess()
+        chess.__board__ = board
+        board.set_piece(0, 0, Pawn("WHITE", board))
+        result = chess.determine_winner()
+        self.assertEqual(result, "White wins")
+
+    def test_no_winner_yet(self):
+        board = Board(for_test=True)
+        chess = Chess()
+        chess.__board__ = board
+        board.set_piece(0, 0, Pawn("WHITE", board))
+        board.set_piece(1, 1, Pawn("BLACK", board))
+        result = chess.determine_winner()
+        self.assertEqual(result, "No winner yet")
+
+
+    @patch('builtins.input', return_value='s')
+    def test_draw_accepted(self, mock_input):
+        chess = Chess()
+        chess.tablas('stop')
+        self.assertTrue(chess.is_playing)
+
+
+    @patch('builtins.input', return_value='n')
+    def test_draw_rejected(self, mock_input):
+        chess = Chess()
+        with self.assertRaises(NoTablas):
+            chess.tablas('stop')
+        self.assertTrue(chess.is_playing)
 
 
 if __name__ == '__main__':
